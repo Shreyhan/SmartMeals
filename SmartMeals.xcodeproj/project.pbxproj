@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		699A1A712CC9B27D003DCE4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 699A1A582CC9B27B003DCE4D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 699A1A5F2CC9B27B003DCE4D;
+			remoteInfo = SmartMeals;
+		};
+		699A1A7B2CC9B27D003DCE4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 699A1A582CC9B27B003DCE4D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 699A1A5F2CC9B27B003DCE4D;
+			remoteInfo = SmartMeals;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		699A1A602CC9B27B003DCE4D /* SmartMeals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartMeals.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		699A1A702CC9B27D003DCE4D /* SmartMealsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartMealsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		699A1A7A2CC9B27D003DCE4D /* SmartMealsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartMealsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		699A1A622CC9B27B003DCE4D /* SmartMeals */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SmartMeals;
+			sourceTree = "<group>";
+		};
+		699A1A732CC9B27D003DCE4D /* SmartMealsTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SmartMealsTests;
+			sourceTree = "<group>";
+		};
+		699A1A7D2CC9B27D003DCE4D /* SmartMealsUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SmartMealsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		699A1A5D2CC9B27B003DCE4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		699A1A6D2CC9B27D003DCE4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		699A1A772CC9B27D003DCE4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		699A1A572CC9B27B003DCE4D = {
+			isa = PBXGroup;
+			children = (
+				699A1A622CC9B27B003DCE4D /* SmartMeals */,
+				699A1A732CC9B27D003DCE4D /* SmartMealsTests */,
+				699A1A7D2CC9B27D003DCE4D /* SmartMealsUITests */,
+				699A1A612CC9B27B003DCE4D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		699A1A612CC9B27B003DCE4D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				699A1A602CC9B27B003DCE4D /* SmartMeals.app */,
+				699A1A702CC9B27D003DCE4D /* SmartMealsTests.xctest */,
+				699A1A7A2CC9B27D003DCE4D /* SmartMealsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		699A1A5F2CC9B27B003DCE4D /* SmartMeals */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 699A1A842CC9B27D003DCE4D /* Build configuration list for PBXNativeTarget "SmartMeals" */;
+			buildPhases = (
+				699A1A5C2CC9B27B003DCE4D /* Sources */,
+				699A1A5D2CC9B27B003DCE4D /* Frameworks */,
+				699A1A5E2CC9B27B003DCE4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				699A1A622CC9B27B003DCE4D /* SmartMeals */,
+			);
+			name = SmartMeals;
+			packageProductDependencies = (
+			);
+			productName = SmartMeals;
+			productReference = 699A1A602CC9B27B003DCE4D /* SmartMeals.app */;
+			productType = "com.apple.product-type.application";
+		};
+		699A1A6F2CC9B27D003DCE4D /* SmartMealsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 699A1A872CC9B27D003DCE4D /* Build configuration list for PBXNativeTarget "SmartMealsTests" */;
+			buildPhases = (
+				699A1A6C2CC9B27D003DCE4D /* Sources */,
+				699A1A6D2CC9B27D003DCE4D /* Frameworks */,
+				699A1A6E2CC9B27D003DCE4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				699A1A722CC9B27D003DCE4D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				699A1A732CC9B27D003DCE4D /* SmartMealsTests */,
+			);
+			name = SmartMealsTests;
+			packageProductDependencies = (
+			);
+			productName = SmartMealsTests;
+			productReference = 699A1A702CC9B27D003DCE4D /* SmartMealsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		699A1A792CC9B27D003DCE4D /* SmartMealsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 699A1A8A2CC9B27D003DCE4D /* Build configuration list for PBXNativeTarget "SmartMealsUITests" */;
+			buildPhases = (
+				699A1A762CC9B27D003DCE4D /* Sources */,
+				699A1A772CC9B27D003DCE4D /* Frameworks */,
+				699A1A782CC9B27D003DCE4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				699A1A7C2CC9B27D003DCE4D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				699A1A7D2CC9B27D003DCE4D /* SmartMealsUITests */,
+			);
+			name = SmartMealsUITests;
+			packageProductDependencies = (
+			);
+			productName = SmartMealsUITests;
+			productReference = 699A1A7A2CC9B27D003DCE4D /* SmartMealsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		699A1A582CC9B27B003DCE4D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					699A1A5F2CC9B27B003DCE4D = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					699A1A6F2CC9B27D003DCE4D = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 699A1A5F2CC9B27B003DCE4D;
+					};
+					699A1A792CC9B27D003DCE4D = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 699A1A5F2CC9B27B003DCE4D;
+					};
+				};
+			};
+			buildConfigurationList = 699A1A5B2CC9B27B003DCE4D /* Build configuration list for PBXProject "SmartMeals" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 699A1A572CC9B27B003DCE4D;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 699A1A612CC9B27B003DCE4D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				699A1A5F2CC9B27B003DCE4D /* SmartMeals */,
+				699A1A6F2CC9B27D003DCE4D /* SmartMealsTests */,
+				699A1A792CC9B27D003DCE4D /* SmartMealsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		699A1A5E2CC9B27B003DCE4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		699A1A6E2CC9B27D003DCE4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		699A1A782CC9B27D003DCE4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		699A1A5C2CC9B27B003DCE4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		699A1A6C2CC9B27D003DCE4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		699A1A762CC9B27D003DCE4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		699A1A722CC9B27D003DCE4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 699A1A5F2CC9B27B003DCE4D /* SmartMeals */;
+			targetProxy = 699A1A712CC9B27D003DCE4D /* PBXContainerItemProxy */;
+		};
+		699A1A7C2CC9B27D003DCE4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 699A1A5F2CC9B27B003DCE4D /* SmartMeals */;
+			targetProxy = 699A1A7B2CC9B27D003DCE4D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		699A1A822CC9B27D003DCE4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		699A1A832CC9B27D003DCE4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		699A1A852CC9B27D003DCE4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SmartMeals/Preview Content\"";
+				DEVELOPMENT_TEAM = F2UABNB3KA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyhan.SmartMeals;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		699A1A862CC9B27D003DCE4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SmartMeals/Preview Content\"";
+				DEVELOPMENT_TEAM = F2UABNB3KA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyhan.SmartMeals;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		699A1A882CC9B27D003DCE4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F2UABNB3KA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyhan.SmartMealsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartMeals.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SmartMeals";
+			};
+			name = Debug;
+		};
+		699A1A892CC9B27D003DCE4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F2UABNB3KA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyhan.SmartMealsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartMeals.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SmartMeals";
+			};
+			name = Release;
+		};
+		699A1A8B2CC9B27D003DCE4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F2UABNB3KA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyhan.SmartMealsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SmartMeals;
+			};
+			name = Debug;
+		};
+		699A1A8C2CC9B27D003DCE4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F2UABNB3KA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyhan.SmartMealsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SmartMeals;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		699A1A5B2CC9B27B003DCE4D /* Build configuration list for PBXProject "SmartMeals" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				699A1A822CC9B27D003DCE4D /* Debug */,
+				699A1A832CC9B27D003DCE4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		699A1A842CC9B27D003DCE4D /* Build configuration list for PBXNativeTarget "SmartMeals" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				699A1A852CC9B27D003DCE4D /* Debug */,
+				699A1A862CC9B27D003DCE4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		699A1A872CC9B27D003DCE4D /* Build configuration list for PBXNativeTarget "SmartMealsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				699A1A882CC9B27D003DCE4D /* Debug */,
+				699A1A892CC9B27D003DCE4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		699A1A8A2CC9B27D003DCE4D /* Build configuration list for PBXNativeTarget "SmartMealsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				699A1A8B2CC9B27D003DCE4D /* Debug */,
+				699A1A8C2CC9B27D003DCE4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 699A1A582CC9B27B003DCE4D /* Project object */;
+}
