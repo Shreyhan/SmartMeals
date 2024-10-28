@@ -26,7 +26,7 @@ struct Meal {
 //define day structure
 struct Day {
     var name: String
-    var meals: [Meal] = []
+    var meals: [Meal]
     var notes: String? //optional dietary notes for day
 }
 
