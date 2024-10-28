@@ -29,36 +29,9 @@
 		699A1A7A2CC9B27D003DCE4D /* SmartMealsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartMealsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		693D3C972CCEF8410045AA89 /* Exceptions for "SmartMeals" folder in "SmartMealsTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				EditMealPlanView.swift,
-				GroceryListView.swift,
-				RecipeView.swift,
-				UserProfileView.swift,
-			);
-			target = 699A1A6F2CC9B27D003DCE4D /* SmartMealsTests */;
-		};
-		693D3C982CCEF8410045AA89 /* Exceptions for "SmartMeals" folder in "SmartMealsUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				EditMealPlanView.swift,
-				GroceryListView.swift,
-				RecipeView.swift,
-				UserProfileView.swift,
-			);
-			target = 699A1A792CC9B27D003DCE4D /* SmartMealsUITests */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		699A1A622CC9B27B003DCE4D /* SmartMeals */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				693D3C972CCEF8410045AA89 /* Exceptions for "SmartMeals" folder in "SmartMealsTests" target */,
-				693D3C982CCEF8410045AA89 /* Exceptions for "SmartMeals" folder in "SmartMealsUITests" target */,
-			);
 			path = SmartMeals;
 			sourceTree = "<group>";
 		};

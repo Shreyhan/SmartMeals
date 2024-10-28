@@ -16,6 +16,20 @@ struct SmartMealsApp: App {
     }
 }
 
+//define a meal structure
+struct Meal {
+    //specify Breakfast, Lunch, or Dinner
+    var type: String
+    var name: String
+    var imageName: String?
+}
+//define day structure
+struct Day {
+    var name: String
+    var meals: [Meal] = []
+    var notes: String? //optional dietary notes for day
+}
+
 struct Recipe {
     let name: String
     let imageName: String
