@@ -2,26 +2,33 @@
 //  UserSignUpView.swift
 //  SmartMeals
 //
-//  Created by Shreyhan Lakhina on 10/23/24.
+//  Created by Shravani on 10/27/24.
 //
 
 import SwiftUI
 
 struct UserSignUpView: View {
     var body: some View {
-            VStack {
-                // NEED TO MAKE THIS LOOK LESS UGLY
-                // im too lazy to make the rest of the views... imma do those later lmao 
-                Text("Sign In")
-                    .font(.largeTitle)
-                Button(action: {
-                    // NEED TO PUT GOOGLE SIGN UP THING HERE
-                }) {
-                    Text("Sign in with Google")
-                }
+        VStack {
+            Text("Welcome to SmartMeals!")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            
+            Button(action: {
+                // Action for Add button
+                print("Sign In")
+            }) {
+                Text("Sign In with Google")
+                    .fontWeight(.bold)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
             }
-            .padding()
+            .buttonStyle(PlainButtonStyle())
         }
+        .padding()
+    }
 }
 
 #Preview {

@@ -29,9 +29,38 @@
 		699A1A7A2CC9B27D003DCE4D /* SmartMealsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartMealsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E46096992CCEF7FC00E0194F /* Exceptions for "SmartMeals" folder in "SmartMealsTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AddRecipeView.swift,
+				CreateRecipeView.swift,
+				IngredientView.swift,
+				UserSignUpView.swift,
+				WeeklyMealPlanView.swift,
+			);
+			target = 699A1A6F2CC9B27D003DCE4D /* SmartMealsTests */;
+		};
+		E460969A2CCEF7FC00E0194F /* Exceptions for "SmartMeals" folder in "SmartMealsUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AddRecipeView.swift,
+				CreateRecipeView.swift,
+				IngredientView.swift,
+				UserSignUpView.swift,
+				WeeklyMealPlanView.swift,
+			);
+			target = 699A1A792CC9B27D003DCE4D /* SmartMealsUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		699A1A622CC9B27B003DCE4D /* SmartMeals */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E46096992CCEF7FC00E0194F /* Exceptions for "SmartMeals" folder in "SmartMealsTests" target */,
+				E460969A2CCEF7FC00E0194F /* Exceptions for "SmartMeals" folder in "SmartMealsUITests" target */,
+			);
 			path = SmartMeals;
 			sourceTree = "<group>";
 		};
