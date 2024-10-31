@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct UserSignUpView: View {
-    @Environment(\.modelContext) private var context
-    @State private var navigateToProfile = false
+//    @Environment(\.modelContext) private var context
     
     var body: some View {
         NavigationView {
@@ -19,8 +18,7 @@ struct UserSignUpView: View {
                     .fontWeight(.bold)
                 
                 Button(action: {
-                    createAccount()
-                    navigateToProfile = true
+//                    createAccount()
                 }) {
                     Text("Sign In with Google")
                         .fontWeight(.bold)
@@ -30,24 +28,20 @@ struct UserSignUpView: View {
                         .cornerRadius(10)
                 }
                 .buttonStyle(PlainButtonStyle())
-                
-                NavigationLink(destination: UserProfileView(), isActive: $navigateToProfile) {
-                    EmptyView()
-                }
             }
             .padding()
         }
     }
     
-    func createAccount() {
-        let user = User(firstName: "Lisa", lastName: "White")
-        context.insert(user)
-        do {
-            try context.save()
-        } catch {
-            print("Failed to save user profile")
-        }
-    }
+//    func createAccount() {
+//        let user = User(firstName: "Lisa", lastName: "White")
+//        context.insert(user)
+//        do {
+//            try context.save()
+//        } catch {
+//            print("Failed to save user profile")
+//        }
+//    }
 }
 
 #Preview {
