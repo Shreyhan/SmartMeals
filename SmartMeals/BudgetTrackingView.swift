@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct BudgetTrackingView: View {
-    @State var user: UserProfile
+//    @State var user: UserProfile
+    @State var user: User = User()
     @State var totalGroceryCost: Double = 0.0
     
     var body: some View {
@@ -75,7 +76,7 @@ struct BudgetTrackingView: View {
         }
     }
     
-    func calculateTotalGroceryCost(for user: UserProfile) {
+    func calculateTotalGroceryCost(for user: User) {
             var totalCost = 0.0
             for item in user.groceryList {
                 totalCost += item.price * Double(item.quantity)
@@ -85,6 +86,7 @@ struct BudgetTrackingView: View {
 }
 
 #Preview {
-    BudgetTrackingView(user: UserProfile(firstName: "Lisa", lastName: "White", picture: "lisa_white", numRoommates: 4, budget: 100, groceryList: [GroceryItem(name: "Tomatoes", imageName: "pasta_icon", price: 0.50, quantity: 7, isChecked: false), GroceryItem(name: "Pickles", imageName: "image_here", price: 1.00, quantity: 7, isChecked: true)], vegan: true, vegetarian: false, glutenFree: false, nutAllergy: false))
+//    BudgetTrackingView(user: UserProfile(firstName: "Lisa", lastName: "White", picture: "lisa_white", numRoommates: 4, budget: 100, groceryList: [GroceryItem(name: "Tomatoes", imageName: "pasta_icon", price: 0.50, quantity: 7, isChecked: false), GroceryItem(name: "Pickles", imageName: "image_here", price: 1.00, quantity: 7, isChecked: true)], vegan: true, vegetarian: false, glutenFree: false, nutAllergy: false))
+    BudgetTrackingView()
 }
 

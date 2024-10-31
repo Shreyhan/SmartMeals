@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct UserProfileView: View {
-    @State var user: UserProfile
+    @Environment(\.modelContext) private var context
+    @Query private var users: [User]
+//    @State var user: User = User()
+//    @State var user: UserProfile
     var body: some View {
+        let user: User = users.first!
+        
         VStack {
-            Image(systemName: "person.circle.fill")
+            Image(user.picture)
                 .resizable()
                 .frame(width: 100, height: 100)
                 .padding()
@@ -23,7 +29,10 @@ struct UserProfileView: View {
             
             HStack {
                 Text("Roommates:")
-                Stepper(value: Binding(get: { user.numRoommates }, set: { user.numRoommates = $0 }), in: 1...10) {
+                Stepper(value: Binding(
+                    get: { user.numRoommates },
+                    set: { user.numRoommates = $0 }),
+                    in: 1...10) {
                     Text(String(user.numRoommates))
                         .font(.headline)
                 }
@@ -33,10 +42,21 @@ struct UserProfileView: View {
             HStack {
                 Text("Budget:")
                     .font(.headline)
-                TextField("Budget", value: Binding(get: { user.budget }, set: { user.budget = $0 }), format: .currency(code: "USD"))
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .keyboardType(.decimalPad)
-                    .frame(width: 100)
+                TextField("Budget", value: Binding(
+                    get: { user.budget },
+                    set: {
+                        user.budget = $0
+                        do {
+                            try context.save()
+                        } catch {
+                            print("Failed to save updated budget: \(error)")
+                        }
+                    }),
+                    format: .currency(code: "USD")
+                )
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .keyboardType(.decimalPad)
+                .frame(width: 100)
             }
             
             VStack(alignment: .leading) {
@@ -59,5 +79,6 @@ struct UserProfileView: View {
 }
 
 #Preview {
-    UserProfileView(user: UserProfile(firstName: "Lisa", lastName: "White", picture: "lisa_white", numRoommates: 4, budget: 100, groceryList: [GroceryItem(name: "Tomatoes", imageName: "pasta_icon", price: 0.50, quantity: 7, isChecked: false), GroceryItem(name: "Pickles", imageName: "image_here", price: 1.00, quantity: 7, isChecked: true)], vegan: true, vegetarian: false, glutenFree: false, nutAllergy: false))
+//    UserProfileView(user: UserProfile(firstName: "Lisa", lastName: "White", picture: "lisa_white", numRoommates: 4, budget: 100, groceryList: [GroceryItem(name: "Tomatoes", imageName: "pasta_icon", price: 0.50, quantity: 7, isChecked: false), GroceryItem(name: "Pickles", imageName: "image_here", price: 1.00, quantity: 7, isChecked: true)], vegan: true, vegetarian: false, glutenFree: false, nutAllergy: false))
+    UserProfileView()
 }
