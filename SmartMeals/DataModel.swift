@@ -21,8 +21,6 @@ class User {
     var glutenFree: Bool
     var nutAllergy: Bool
     
-    
-    
     init(firstName: String = "First", lastName: String = "Last", picture: String = "defaultUser", numRoommates: Int = 1, budget: Double = 0.0, vegan: Bool = false, vegetarian: Bool = false, glutenFree: Bool = false, nutAllergy: Bool = false) {
         self.firstName = firstName
         self.lastName = lastName
@@ -36,7 +34,6 @@ class User {
         self.nutAllergy = nutAllergy
     }
 }
-
 
 @Model
 class GroceryItem: Identifiable {

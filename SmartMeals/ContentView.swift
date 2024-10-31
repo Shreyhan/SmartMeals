@@ -6,16 +6,23 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
+    @Query private var users: [User] 
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if users.isEmpty {
+            UserFirstLogin()
+                .onAppear {
+                    print(users)
+                }
+        } else {
+            UserProfileView()
+                .onAppear {
+                    print(users)
+                    print(users.first!.firstName)
+                }
         }
-        .padding()
     }
 }
 

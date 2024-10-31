@@ -10,18 +10,10 @@ import SwiftData
 
 @main
 struct SmartMealsApp: App {
-    @Query private var users: [User]
     var body: some Scene {
         WindowGroup {
-//            UserSignUpView()
-//                .modelContainer(for: [User.self, GroceryItem.self])
-            if (users.isEmpty) {
-                UserFirstLogin()
-                    .modelContainer(for: [User.self, GroceryItem.self])
-            } else {
-                UserProfileView()
-                    .modelContainer(for: [User.self, GroceryItem.self])
-            }
+            UserFirstLogin()
+                .modelContainer(for: [User.self, GroceryItem.self])
         }
     }
 }
