@@ -12,7 +12,7 @@ import SwiftData
 struct SmartMealsApp: App {
     var body: some Scene {
         WindowGroup {
-            UserFirstLogin()
+            CreateRecipeView()
                 .modelContainer(for: [User.self, GroceryItem.self])
         }
     }
@@ -32,14 +32,14 @@ struct Day {
     var notes: String? //optional dietary notes for day
 }
 
-struct Recipe {
+struct Recipeee {
     let name: String
     let imageName: String
     let ingredients: [String]
     let instructions: [String]
     let time: String
 }
-
+//
 //struct GroceryItem {
 //    var id = UUID()
 //    var name: String

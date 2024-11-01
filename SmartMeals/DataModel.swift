@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
 
 @Model
 class User {
@@ -52,5 +53,21 @@ class GroceryItem: Identifiable {
         self.quantity = quantity
         self.isChecked = isChecked
     }
+}
+
+@Model
+class Recipe {
+    var name: String
+    var imageData: Data
+    var ingredients: [String]
+    var instructions: [String]
+    var time: String
     
+    init(name: String, imageData: Data, ingredients: [String], instructions: [String], time: String) {
+        self.name = name
+        self.imageData = imageData
+        self.ingredients = ingredients
+        self.instructions = instructions
+        self.time = time
+    }
 }

@@ -13,7 +13,7 @@ struct UserProfileView: View {
     @Query private var users: [User]
     @FocusState private var budgetFocused: Bool
     var body: some View {
-        let user: User = users.first!
+    let user: User = users.first!
         VStack {
             Image(user.picture)
                 .resizable()

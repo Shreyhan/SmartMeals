@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct BudgetTrackingView: View {
-//    @State var user: UserProfile
-    @State var user: User = User()
+    @Environment(\.modelContext) private var context
+    @Query private var users: [User]
     @State var totalGroceryCost: Double = 0.0
     
     var body: some View {
+        let user = users.first!
         VStack {
             Text("Budget Tracker")
                 .font(.largeTitle)
