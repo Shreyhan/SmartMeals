@@ -25,7 +25,7 @@ struct UserFirstLogin: View {
     var body: some View {
         NavigationView {
             if let _: User = users.first {
-                UserProfileView()
+                ContentView()
             } else {
                 ZStack(alignment: .bottom) {
                     GeometryReader {

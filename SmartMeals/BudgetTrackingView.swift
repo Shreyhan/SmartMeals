@@ -6,74 +6,85 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct BudgetTrackingView: View {
-//    @State var user: UserProfile
-    @State var user: User = User()
+    @Environment(\.modelContext) private var context
+    @Query private var users: [User]
     @State var totalGroceryCost: Double = 0.0
     
+    
     var body: some View {
-        VStack {
-            Text("Budget Tracker")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.top)
-            Text("For this week")
-                .font(.headline)
-                .fontWeight(.light)
-                .foregroundColor(.gray)
-                .padding(.bottom)
-            
-            Spacer()
-            
-            HStack {
-                Spacer()
-                Text("Remaining Budget:")
+        let user = users.first!
+        NavigationView {
+            VStack {
+                Text("Budget Tracker")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding(.top)
+                Text("For this week")
                     .font(.headline)
+                    .fontWeight(.light)
+                    .foregroundColor(.gray)
+                    .padding(.bottom)
                 Spacer()
-                Text(String(format: "$%.2f", user.budget-totalGroceryCost))
-                    .font(.headline)
-                    .padding()
-                    .background(user.budget-totalGroceryCost > 0 ? Color.green.opacity(0.2) : Color.red.opacity(0.2))
-                    .cornerRadius(10)
+                HStack {
+                    Spacer()
+                    Text("Remaining Budget:")
+                        .font(.headline)
+                    Spacer()
+                    Text(String(format: "$%.2f", user.budget-totalGroceryCost))
+                        .font(.headline)
+                        .padding()
+                        .background(user.budget-totalGroceryCost > 0 ? Color.green.opacity(0.2) : Color.red.opacity(0.2))
+                        .cornerRadius(10)
+                    Spacer()
+                }
+                .padding(10)
+                
+                HStack {
+                    Spacer()
+                    Text("Total Grocery Cost:")
+                        .font(.headline)
+                    Spacer()
+                    Text(String(format: "$%.2f", totalGroceryCost))
+                        .font(.headline)
+                        .padding()
+                        .background(Color.blue.opacity(0.2))
+                        .cornerRadius(10)
+                    Spacer()
+                }
+                .padding(10)
+                
+                HStack {
+                    Spacer()
+                    Text("Money Owed per Roommate:")
+                        .font(.headline)
+                    Spacer()
+                    Text(String(format: "$%.2f", totalGroceryCost/Double(user.numRoommates)))
+                        .font(.headline)
+                        .padding()
+                        .background(Color.orange.opacity(0.2))
+                        .cornerRadius(10)
+                    Spacer()
+                }
+                .padding(10)
+                
+                NavigationLink {
+                    CreateRecipeView()
+                } label: {
+                    Text("TESTER")
+                }
+
+                
+                Spacer()
                 Spacer()
             }
-            .padding(10)
-            
-            HStack {
-                Spacer()
-                Text("Total Grocery Cost:")
-                    .font(.headline)
-                Spacer()
-                Text(String(format: "$%.2f", totalGroceryCost))
-                    .font(.headline)
-                    .padding()
-                    .background(Color.blue.opacity(0.2))
-                    .cornerRadius(10)
-                Spacer()
-            }
-            .padding(10)
-            
-            HStack {
-                Spacer()
-                Text("Money Owed per Roommate:")
-                    .font(.headline)
-                Spacer()
-                Text(String(format: "$%.2f", totalGroceryCost/Double(user.numRoommates)))
-                    .font(.headline)
-                    .padding()
-                    .background(Color.orange.opacity(0.2))
-                    .cornerRadius(10)
-                Spacer()
-            }
-            .padding(10)
-            
-            Spacer()
-            Spacer()
         }
         .onAppear {
             calculateTotalGroceryCost(for: user)
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     func calculateTotalGroceryCost(for user: User) {

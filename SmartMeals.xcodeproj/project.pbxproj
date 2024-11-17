@@ -33,6 +33,7 @@
 		6933A96F2CD2FEB800262CC2 /* Exceptions for "SmartMeals" folder in "SmartMealsTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				CreateRecipeView.swift,
 				DataModel.swift,
 				UserFirstLogin.swift,
 			);
@@ -41,6 +42,7 @@
 		6933A9702CD2FEB800262CC2 /* Exceptions for "SmartMeals" folder in "SmartMealsUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				CreateRecipeView.swift,
 				DataModel.swift,
 				UserFirstLogin.swift,
 			);

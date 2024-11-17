@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct EditMealPlanView: View {
-    @State var recipes = [Recipe]()
+    @State var recipesold = [Recipeee]()
+    @Query private var recipes: [Recipe]
     var body: some View {
         @State var search: String = ""
         NavigationView {
@@ -17,7 +19,7 @@ struct EditMealPlanView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                 
-                List(recipes, id:\.name) { recipe in
+                List(recipesold, id:\.name) { recipe in
                     HStack {
                         Image(recipe.imageName)
                             .resizable()
@@ -59,7 +61,7 @@ struct EditMealPlanView: View {
 
 
 #Preview {
-    EditMealPlanView(recipes: [Recipe(name: "Pasta", imageName: "pasta_icon", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"], instructions: ["Step one", "Step two", "Step three"], time: "10 min"),
-                               Recipe(name: "Pizza", imageName: "pizza_icon", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"], instructions: ["Step one", "Step two", "Step three"], time: "10 min"),
-                               Recipe(name: "Chicken soup", imageName: "soup_icon", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"], instructions: ["Step one", "Step two", "Step three"], time: "10 min")])
+    EditMealPlanView(recipesold: [Recipeee(name: "Pasta", imageName: "pasta_icon", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"], instructions: ["Step one", "Step two", "Step three"], time: "10 min"),
+                               Recipeee(name: "Pizza", imageName: "pizza_icon", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"], instructions: ["Step one", "Step two", "Step three"], time: "10 min"),
+                               Recipeee(name: "Chicken soup", imageName: "soup_icon", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"], instructions: ["Step one", "Step two", "Step three"], time: "10 min")])
 }
