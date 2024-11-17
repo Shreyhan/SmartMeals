@@ -51,9 +51,9 @@ struct EditMealPlanView: View {
                             .cornerRadius(10)
                             .padding([.leading, .trailing], 20)
                     }
-                    Button(action: {
-                        // GO TO NEW RECIPE VIEW HEREEE
-                    }) {
+                    NavigationLink(destination: {
+                        CreateRecipeView()
+                    }, label: {
                         Text("Create New Recipe")
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -61,7 +61,7 @@ struct EditMealPlanView: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                             .padding([.leading, .trailing], 20)
-                    }
+                    })
                 }
                 Spacer()
             }
