@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct IngredientView: View {
+    @Environment(\.modelContext) private var context
     @State private var itemName: String = ""
     @State private var quantity: Int = 1
     @State private var price: Double = 0.1
@@ -85,7 +86,13 @@ struct IngredientView: View {
                     }
                     
                     Button(action: {
-                        // INSERT CODE TO ADD ITEM TO GROCERY LIST VIEW HERE
+                        let newItem = GroceryItem(id: UUID.init(), name: itemName, price: price, quantity: quantity)
+                        context.insert(newItem)
+                        do {
+                            try context.save()
+                        } catch {
+                            print("Failed to save recipe: \(error)")
+                        }
                         dismiss()
                     }) {
                         Text("Add to list")

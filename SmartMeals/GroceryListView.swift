@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 
 struct GroceryListView: View {
-    @State var groceryItems = [GroceryItem]()
+    @Environment(\.modelContext) private var context
+    @Query private var groceryItems: [GroceryItem]
+//    @State var groceryItems = [GroceryItem]()
     
     var body: some View {
         NavigationView {
@@ -43,8 +46,13 @@ struct GroceryListView: View {
                             }
                         }
                     }
+//                    .onDelete { indexSet in
+//                        groceryItems.remove(atOffsets: indexSet)
+//                    }
                     .onDelete { indexSet in
-                        groceryItems.remove(atOffsets: indexSet)
+                        for index in indexSet {
+                            context.delete(groceryItems[index])
+                        }
                     }
                 }
                 .listStyle(PlainListStyle())
@@ -68,8 +76,9 @@ struct GroceryListView: View {
 }
 
 #Preview {
-    GroceryListView(groceryItems: [
-//            GroceryItem(id: UUID(), name: "Tomatoes", imageName: "pasta_icon", price: 0.50, quantity: 7, isChecked: false),
-//            GroceryItem(id: UUID(), name: "Pickles", imageName: "image_here", price: 1.00, quantity: 7, isChecked: true)
-        ])
+//    GroceryListView(groceryItems: [
+////            GroceryItem(id: UUID(), name: "Tomatoes", imageName: "pasta_icon", price: 0.50, quantity: 7, isChecked: false),
+////            GroceryItem(id: UUID(), name: "Pickles", imageName: "image_here", price: 1.00, quantity: 7, isChecked: true)
+//        ])
+    GroceryListView()
 }
