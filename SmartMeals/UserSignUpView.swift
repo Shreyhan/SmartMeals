@@ -8,27 +8,40 @@
 import SwiftUI
 
 struct UserSignUpView: View {
+//    @Environment(\.modelContext) private var context
+    
     var body: some View {
-        VStack {
-            Text("Welcome to SmartMeals!")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            
-            Button(action: {
-                // Action for Add button
-                print("Sign In")
-            }) {
-                Text("Sign In with Google")
+        NavigationView {
+            VStack {
+                Text("Welcome to SmartMeals!")
+                    .font(.largeTitle)
                     .fontWeight(.bold)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+                
+                Button(action: {
+//                    createAccount()
+                }) {
+                    Text("Sign In with Google")
+                        .fontWeight(.bold)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                .buttonStyle(PlainButtonStyle())
             }
-            .buttonStyle(PlainButtonStyle())
+            .padding()
         }
-        .padding()
     }
+    
+//    func createAccount() {
+//        let user = User(firstName: "Lisa", lastName: "White")
+//        context.insert(user)
+//        do {
+//            try context.save()
+//        } catch {
+//            print("Failed to save user profile")
+//        }
+//    }
 }
 
 #Preview {

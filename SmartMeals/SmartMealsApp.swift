@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct SmartMealsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            UserFirstLogin()
+                .modelContainer(for: [User.self, GroceryItem.self])
         }
     }
 }
@@ -38,24 +40,24 @@ struct Recipe {
     let time: String
 }
 
-struct GroceryItem {
-    var id = UUID()
-    var name: String
-    var imageName : String
-    var price: Double
-    var quantity: Int
-    var isChecked: Bool
-}
-
-struct UserProfile {
-    var firstName: String
-    var lastName: String
-    var picture: String
-    var numRoommates: Int
-    var budget: Double
-    var groceryList: [GroceryItem]
-    var vegan: Bool
-    var vegetarian: Bool
-    var glutenFree: Bool
-    var nutAllergy: Bool
-}
+//struct GroceryItem {
+//    var id = UUID()
+//    var name: String
+//    var imageName : String
+//    var price: Double
+//    var quantity: Int
+//    var isChecked: Bool
+//}
+//
+//struct UserProfile {
+//    var firstName: String
+//    var lastName: String
+//    var picture: String
+//    var numRoommates: Int
+//    var budget: Double
+//    var groceryList: [GroceryItem]
+//    var vegan: Bool
+//    var vegetarian: Bool
+//    var glutenFree: Bool
+//    var nutAllergy: Bool
+//}

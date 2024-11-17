@@ -70,7 +70,7 @@ struct GroceryListView: View {
 
 #Preview {
     GroceryListView(groceryItems: [
-        GroceryItem(name: "Tomatoes", imageName: "pasta_icon", price: 0.50, quantity: 7, isChecked: false),
-        GroceryItem(name: "Pickles", imageName: "image_here", price: 1.00, quantity: 7, isChecked: true)
+            GroceryItem(id: UUID(), name: "Tomatoes", imageName: "pasta_icon", price: 0.50, quantity: 7, isChecked: false),
+            GroceryItem(id: UUID(), name: "Pickles", imageName: "image_here", price: 1.00, quantity: 7, isChecked: true)
         ])
 }
