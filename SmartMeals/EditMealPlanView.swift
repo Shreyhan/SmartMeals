@@ -39,16 +39,29 @@ struct EditMealPlanView: View {
                 .onChange(of: search) { oldValue, newValue in
                     // insert code to edit search
                 }
-                Button(action: {
-                    // GO TO NEW RECIPE VIEW HEREEE
-                }) {
-                    Text("Create New Recipe")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .padding([.leading, .trailing], 20)
+                HStack {
+                    Button(action: {
+                        // GO TO NEW RECIPE VIEW HEREEE
+                    }) {
+                        Text("GO BACK")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.red)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .padding([.leading, .trailing], 20)
+                    }
+                    Button(action: {
+                        // GO TO NEW RECIPE VIEW HEREEE
+                    }) {
+                        Text("Create New Recipe")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .padding([.leading, .trailing], 20)
+                    }
                 }
                 Spacer()
             }

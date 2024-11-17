@@ -79,10 +79,11 @@ struct AddRecipeView: View {
                     // Action for Go Back button
                     print("Go Back clicked")
                 }) {
-                    Text("Go Back")
+                    Text("Cancel")
                         .fontWeight(.bold)
                         .padding()
-                        .background(Color.gray.opacity(0.3))
+                        .background(Color.red)
+                        .foregroundColor(.white)
                         .cornerRadius(10)
                 }
                 .buttonStyle(PlainButtonStyle())
