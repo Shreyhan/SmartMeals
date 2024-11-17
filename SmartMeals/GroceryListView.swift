@@ -20,10 +20,10 @@ struct GroceryListView: View {
             List {
                 ForEach(groceryItems.indices, id: \.self) { index in
                     HStack {
-                        Image(groceryItems[index].imageName)
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .clipShape(Circle())
+//                        Image(groceryItems[index].imageName)
+//                            .resizable()
+//                            .frame(width: 40, height: 40)
+//                            .clipShape(Circle())
                         VStack(alignment: .leading) {
                             HStack {
                                 Text(groceryItems[index].name)
@@ -70,7 +70,7 @@ struct GroceryListView: View {
 
 #Preview {
     GroceryListView(groceryItems: [
-            GroceryItem(id: UUID(), name: "Tomatoes", imageName: "pasta_icon", price: 0.50, quantity: 7, isChecked: false),
-            GroceryItem(id: UUID(), name: "Pickles", imageName: "image_here", price: 1.00, quantity: 7, isChecked: true)
+//            GroceryItem(id: UUID(), name: "Tomatoes", imageName: "pasta_icon", price: 0.50, quantity: 7, isChecked: false),
+//            GroceryItem(id: UUID(), name: "Pickles", imageName: "image_here", price: 1.00, quantity: 7, isChecked: true)
         ])
 }

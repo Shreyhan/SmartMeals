@@ -12,8 +12,8 @@ import SwiftData
 struct SmartMealsApp: App {
     var body: some Scene {
         WindowGroup {
-            CreateRecipeView()
-                .modelContainer(for: [User.self, GroceryItem.self])
+            ContentView()
+                .modelContainer(for: [User.self, GroceryItem.self, Recipe.self])
         }
     }
 }

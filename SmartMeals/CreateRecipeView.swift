@@ -11,6 +11,7 @@ import PhotosUI
 
 struct CreateRecipeView: View {
     @Environment(\.modelContext) private var context
+    @Environment(\.dismiss) var dismiss
     @Query private var recipes: [Recipe]
     
     @State private var selectedItem: PhotosPickerItem? = nil
@@ -140,7 +141,7 @@ struct CreateRecipeView: View {
         
         HStack {
             Button(action: {
-                // CODE TO GO BACK TO CONTENT VIEW HERE!!!!
+                dismiss()
             }) {
                 Text("Cancel")
                     .frame(maxWidth: .infinity)
@@ -155,16 +156,15 @@ struct CreateRecipeView: View {
                 let ingredients: [String] = ingredientsString.split(separator: "\n").map { String($0) }
                 let steps: [String] = stepsString.split(separator: "\n").map { String($0) }
                 let prep: String = String(prepNum) + " " + prepTime
-                let imageData = image?.pngData() ?? Data()
-                let recipe: Recipe = Recipe(name: recipeName, imageData: imageData, ingredients: ingredients, instructions: steps, time: prep)
-                
+                let image = image?.pngData()
+                let recipe: Recipe = Recipe(name: recipeName, image: image, ingredients: ingredients, instructions: steps, time: prep)
                 context.insert(recipe)
                 do {
                     try context.save()
                 } catch {
                     print("Failed to save recipe: \(error)")
                 }
-                print(recipes)
+                dismiss()
             }) {
                 Text("Create recipe")
                     .frame(maxWidth: .infinity)

@@ -58,14 +58,15 @@ class GroceryItem: Identifiable {
 @Model
 class Recipe {
     var name: String
-    var imageData: Data
+//    var imageData: Data
+    @Attribute(.externalStorage) var image: Data?
     var ingredients: [String]
     var instructions: [String]
     var time: String
     
-    init(name: String, imageData: Data, ingredients: [String], instructions: [String], time: String) {
+    init(name: String, image: Data? = UIImage(systemName: "fork.knifw")?.pngData(), ingredients: [String], instructions: [String], time: String) {
         self.name = name
-        self.imageData = imageData
+        self.image = image
         self.ingredients = ingredients
         self.instructions = instructions
         self.time = time
