@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AddRecipeView: View {
+    var recipe: Recipeee
+    @Environment(\.dismiss) var dismiss
     @State private var recipeName: String = ""
     @State private var image: UIImage?
     @State private var day: String = "Monday"
@@ -76,24 +78,21 @@ struct AddRecipeView: View {
             // Buttons at the bottom
             HStack {
                 Button(action: {
-                    // Action for Go Back button
-                    print("Go Back clicked")
+                   dismiss()
                 }) {
-                    Text("Go Back")
+                    Text("Cancel")
                         .fontWeight(.bold)
                         .padding()
-                        .background(Color.gray.opacity(0.3))
+                        .background(Color.red)
+                        .foregroundColor(.white)
                         .cornerRadius(10)
                 }
                 .buttonStyle(PlainButtonStyle())
                 
                 // Space between buttons
                 Spacer()
-
-                Button(action: {
-                    // Action for Add button
-                    print("Add tapped")
-                }) {
+                
+                NavigationLink(destination: WeeklyMealPlanView(weekData: sampleWeekData)) {
                     Text("Add")
                         .fontWeight(.bold)
                         .padding()
@@ -110,5 +109,5 @@ struct AddRecipeView: View {
 }
 
 #Preview {
-    AddRecipeView()
+    AddRecipeView(recipe: Recipeee(name: "Pasta", imageName: "pasta_icon", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3", "Ingredient 4", "Ingredient 5", "Ingredient 6", "Ingredient 7", "Ingredient 8", "Ingredient 9", "Ingredient 10"], instructions: ["Step one", "Step two", "Step three", "Step three", "Step four", "Step five", "Step six", "Step seven", "Step eight", "Step nine", "Step ten"], time: "10 min"))
 }

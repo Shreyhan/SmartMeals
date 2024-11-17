@@ -69,12 +69,6 @@ struct BudgetTrackingView: View {
                     Spacer()
                 }
                 .padding(10)
-                
-                NavigationLink {
-                    CreateRecipeView()
-                } label: {
-                    Text("TESTER")
-                }
 
                 
                 Spacer()
