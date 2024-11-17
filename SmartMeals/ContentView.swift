@@ -10,6 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     @Query private var users: [User]
+    @Environment(\.modelContext) private var context
     let sampleWeekData: [Day] = [
         Day(
             name: "Monday",
@@ -51,35 +52,40 @@ struct ContentView: View {
     ];
     
     var body: some View {
-        
-        if let _: User = users.first {
-            TabView {
-                WeeklyMealPlanView(weekData: sampleWeekData)
-                    .tabItem() {
-                        Image(systemName: "fork.knife")
-                        Text("Meal Plan")
-                    }
-                GroceryListView()
-                    .tabItem() {
-                        Image(systemName: "cart")
-                        Text("Grocery List")
-                    }
-                BudgetTrackingView()
-                    .tabItem() {
-                        Image(systemName: "dollarsign.square")
-                        Text("Budget Tracking")
-                    }
-                
-                UserProfileView()
-                    .tabItem() {
-                        Image(systemName: "person.fill")
-                        Text("User Info")
-                    }
+        VStack {
+            if let _: User = users.first {
+                TabView {
+                    WeeklyMealPlanView(weekData: sampleWeekData)
+                        .tabItem() {
+                            Image(systemName: "fork.knife")
+                            Text("Meal Plan")
+                        }
+                    GroceryListView()
+                        .tabItem() {
+                            Image(systemName: "cart")
+                            Text("Grocery List")
+                        }
+                    BudgetTrackingView()
+                        .tabItem() {
+                            Image(systemName: "dollarsign.square")
+                            Text("Budget Tracking")
+                        }
+                    
+                    UserProfileView()
+                        .tabItem() {
+                            Image(systemName: "person.fill")
+                            Text("User Info")
+                        }
+                }
+            } else {
+                UserFirstLogin()
             }
-        } else {
-            UserFirstLogin()
+        }.onAppear {
+            let user = User(firstName: "firstName", lastName: "lastName")
+            context.insert(user)
         }
     }
+    
 }
 
 #Preview {
