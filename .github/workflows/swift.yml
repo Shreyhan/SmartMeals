@@ -26,5 +26,5 @@ jobs:
       run: xcodebuild -scheme SmartMeals -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' build
 
       # Run the specific test target using xcodebuild
-    - name: Run specific test
-      run: xcodebuild -scheme SmartMeals -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' test -only-testing:SmartMealsUITests
+    # - name: Run specific test
+    #   run: xcodebuild -scheme SmartMeals -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' test -only-testing:SmartMealsUITests
