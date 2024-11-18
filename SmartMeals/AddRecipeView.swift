@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddRecipeView: View {
-    var recipe: Recipeee
+    var recipe: Recipe
     @Environment(\.dismiss) var dismiss
     @State private var recipeName: String = ""
     @State private var image: UIImage?
@@ -109,5 +109,6 @@ struct AddRecipeView: View {
 }
 
 #Preview {
-    AddRecipeView(recipe: Recipeee(name: "Pasta", imageName: "pasta_icon", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3", "Ingredient 4", "Ingredient 5", "Ingredient 6", "Ingredient 7", "Ingredient 8", "Ingredient 9", "Ingredient 10"], instructions: ["Step one", "Step two", "Step three", "Step three", "Step four", "Step five", "Step six", "Step seven", "Step eight", "Step nine", "Step ten"], time: "10 min"))
+//    AddRecipeView(recipe: Recipeee(name: "Pasta", imageName: "pasta_icon", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3", "Ingredient 4", "Ingredient 5", "Ingredient 6", "Ingredient 7", "Ingredient 8", "Ingredient 9", "Ingredient 10"], instructions: ["Step one", "Step two", "Step three", "Step three", "Step four", "Step five", "Step six", "Step seven", "Step eight", "Step nine", "Step ten"], time: "10 min"))
+//    AddRecipeView()
 }

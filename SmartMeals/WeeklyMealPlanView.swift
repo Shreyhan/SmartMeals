@@ -67,14 +67,16 @@ struct WeeklyMealPlanView: View {
                                 .fontWeight(.bold)
                             Spacer()
                             //create navigation link to EditMealPlan View and make day a parameter
-                            NavigationLink(destination: EditMealPlanView(day: day)) {
+                            NavigationLink(destination: {
+                                EditMealPlanView()
+                            }, label: {
                                 Text("Modify")
                                     .font(.caption)
                                     .padding(5)
                                     .background(Color.blue)
                                     .foregroundColor(.white)
                                     .cornerRadius(5)
-                            }
+                            })
                         }
                         //adds first meal for each type for each day
                         //$0 represents each meal in array
