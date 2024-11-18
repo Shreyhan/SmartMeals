@@ -6,50 +6,57 @@
 //
 
 import SwiftUI
-let sampleWeekData: [Day] = [
-    Day(
-        name: "Monday",
-        meals: [
-            Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image"),
-            Meal(type: "Lunch", name: "Pasta"),
-            Meal(type: "Dinner", name: "Chicken")
-        ]),
-    Day(name: "Tuesday", meals: [
-        Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image"),
-        Meal(type: "Lunch", name: "Pasta"),
-        Meal(type: "Dinner", name: "Chicken")
-    ]),
-    Day(name: "Wednesday", meals : [
-        Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image"),
-        Meal(type: "Lunch", name: "Pasta"),
-        Meal(type: "Dinner", name: "Chicken")
-    ]),
-    Day(name: "Thursday", meals : [
-        Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image"),
-        Meal(type: "Lunch", name: "Pasta"),
-        Meal(type: "Dinner", name: "Chicken")
-    ]),
-    Day(name: "Friday", meals : [
-        Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image"),
-        Meal(type: "Lunch", name: "Pasta"),
-        Meal(type: "Dinner", name: "Chicken")
-    ]),
-    Day(name: "Saturday", meals : [
-        Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image"),
-        Meal(type: "Lunch", name: "Pasta"),
-        Meal(type: "Dinner", name: "Chicken")
-    ]),
-    Day(name: "Sunday", meals : [
-        Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image"),
-        Meal(type: "Lunch", name: "Pasta"),
-        Meal(type: "Dinner", name: "Chicken")
-    ])
-];
+import SwiftData
+//let sampleWeekData: [Day] = [
+//    Day(
+//        name: "Monday",
+//        meals: [
+//            Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image"),
+//            Meal(type: "Lunch", name: "Pasta"),
+//            Meal(type: "Dinner", name: "Chicken")
+//        ]),
+//    Day(name: "Tuesday", meals: [
+//        Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image"),
+//        Meal(type: "Lunch", name: "Pasta"),
+//        Meal(type: "Dinner", name: "Chicken")
+//    ]),
+//    Day(name: "Wednesday", meals : [
+//        Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image"),
+//        Meal(type: "Lunch", name: "Pasta"),
+//        Meal(type: "Dinner", name: "Chicken")
+//    ]),
+//    Day(name: "Thursday", meals : [
+//        Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image"),
+//        Meal(type: "Lunch", name: "Pasta"),
+//        Meal(type: "Dinner", name: "Chicken")
+//    ]),
+//    Day(name: "Friday", meals : [
+//        Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image"),
+//        Meal(type: "Lunch", name: "Pasta"),
+//        Meal(type: "Dinner", name: "Chicken")
+//    ]),
+//    Day(name: "Saturday", meals : [
+//        Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image"),
+//        Meal(type: "Lunch", name: "Pasta"),
+//        Meal(type: "Dinner", name: "Chicken")
+//    ]),
+//    Day(name: "Sunday", meals : [
+//        Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image"),
+//        Meal(type: "Lunch", name: "Pasta"),
+//        Meal(type: "Dinner", name: "Chicken")
+//    ])
+//];
 
 struct WeeklyMealPlanView: View {
+    //use to track changes in User model
+   // @Query private var users: [User]
+    @EnvironmentObject var user: User
+  
     //list of type Day
-    var weekData: [Day]
+    //var weekData: [Day]
     var body: some View {
+        //let first: User = users.first!
+        
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading) {
@@ -58,8 +65,8 @@ struct WeeklyMealPlanView: View {
                         .padding()
                         .fontWeight(.bold)
                 }
-                
-                ForEach(weekData, id: \.name) { day in
+                //for each day in meal plan, display recipes for each meal time
+                ForEach(user.mealPlan, id: \.name) { day in
                     VStack(alignment: .leading, spacing: 10){
                         HStack {
                             Text(day.name)
@@ -78,34 +85,60 @@ struct WeeklyMealPlanView: View {
                                     .cornerRadius(5)
                             })
                         }
+                    }
+                    ForEach(day.meals, id: \.type) { meal in
+                        HStack {
+                            //display image
+                            //Image(meal.recipe.image != nil ? Image(uiImage: UIImage(data: meal.recipe.image!)!) : UIImage(systemName: "photo")) //
+                            //                                .resizable()
+                            //                                .scaledToFit()
+                            //                                .frame(width: 20, height: 20)
+                            Text("\(meal.type): \(meal.recipe.name)")
+                                .padding(.vertical, 2)
+                        }
+                    }
+                        
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                         //adds first meal for each type for each day
                         //$0 represents each meal in array
                         //if no meal for that type, empty string
-                        HStack {
-                            Image(day.meals.first(where: { $0.type == "Breakfast" })?.imageName ?? "image") // Use a placeholder if no image exists
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 20, height: 20)
-                            Text("Breakfast: \(day.meals.first(where: { $0.type == "Breakfast" })?.name ?? "")")
-                                .padding(.vertical, 2)
-                        }
-                        HStack {
-                            Image(day.meals.first(where: { $0.type == "Lunch" })?.imageName ?? "image") // Use a placeholder if no image exists
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 20, height: 20)
-                            Text("Lunch: \(day.meals.first(where: { $0.type == "Lunch" })?.name ?? "")")
-                                .padding(.vertical, 2)
-                        }
-                        HStack {
-                            Image(day.meals.first(where: { $0.type == "Dinner" })?.imageName ?? "image") // Use a placeholder if no image exists
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 20, height: 20)
-                            Text("Dinner: \(day.meals.first(where: { $0.type == "Dinner" })?.name ?? "")")
-                                .padding(.vertical, 2)
-                        }
-                        Divider()
+//                        HStack {
+//                            Image(day.meals.first(where: { $0.type == "Breakfast" })?.imageName ?? "image") // Use a placeholder if no image exists
+//                                .resizable()
+//                                .scaledToFit()
+//                                .frame(width: 20, height: 20)
+//                            Text("Breakfast: \(day.meals.first(where: { $0.type == "Breakfast" })?.name ?? "")")
+//                                .padding(.vertical, 2)
+//                        }
+//                        HStack {
+//                            Image(day.meals.first(where: { $0.type == "Lunch" })?.imageName ?? "image") // Use a placeholder if no image exists
+//                                .resizable()
+//                                .scaledToFit()
+//                                .frame(width: 20, height: 20)
+//                            Text("Lunch: \(day.meals.first(where: { $0.type == "Lunch" })?.name ?? "")")
+//                                .padding(.vertical, 2)
+//                        }
+//                        HStack {
+//                            Image(day.meals.first(where: { $0.type == "Dinner" })?.imageName ?? "image") // Use a placeholder if no image exists
+//                                .resizable()
+//                                .scaledToFit()
+//                                .frame(width: 20, height: 20)
+//                            Text("Dinner: \(day.meals.first(where: { $0.type == "Dinner" })?.name ?? "")")
+//                                .padding(.vertical, 2)
+//                        }
+                    Divider()
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 10)
@@ -113,10 +146,8 @@ struct WeeklyMealPlanView: View {
             }
                 .padding()
         }
-        .navigationBarBackButtonHidden(true)
-    }
 }
 
 #Preview {
-    WeeklyMealPlanView(weekData: sampleWeekData)
+    WeeklyMealPlanView()
 }

@@ -10,7 +10,7 @@ import SwiftData
 import SwiftUI
 
 @Model
-class User {
+class User: ObservableObject{
     var firstName: String
     var lastName: String
     var picture: String
@@ -21,6 +21,7 @@ class User {
     var vegetarian: Bool
     var glutenFree: Bool
     var nutAllergy: Bool
+    var mealPlan: [Day]
     
     init(firstName: String = "First", lastName: String = "Last", picture: String = "defaultUser", numRoommates: Int = 1, budget: Double = 0.0, vegan: Bool = false, vegetarian: Bool = false, glutenFree: Bool = false, nutAllergy: Bool = false) {
         self.firstName = firstName
@@ -33,6 +34,7 @@ class User {
         self.vegetarian = vegetarian
         self.glutenFree = glutenFree
         self.nutAllergy = nutAllergy
+        self.mealPlan = [Day(name:"Monday", meals: []), Day(name:"Tuesday", meals: []), Day(name:"Wednesday", meals: []), Day(name:"Thursday", meals: []), Day(name:"Friday", meals: []), Day(name:"Saturday", meals: []), Day(name:"Sunday", meals: [])]
     }
 }
 
@@ -70,5 +72,29 @@ class Recipe {
         self.ingredients = ingredients
         self.instructions = instructions
         self.time = time
+    }
+}
+
+// New data model for the Day (to store meals for each day)
+@Model
+class Day {
+    var name: String
+    var meals: [Meal]
+    
+    init(name: String, meals: [Meal]) {
+        self.name = name
+        self.meals = meals
+    }
+}
+
+// New data model for the Meal (to store meal details like type and associated recipe)
+@Model
+class Meal {
+    var type: String //breakfast, lunch, dinner
+    var recipe: Recipe
+    
+    init(type: String, recipe: Recipe) {
+        self.type = type
+        self.recipe = recipe
     }
 }

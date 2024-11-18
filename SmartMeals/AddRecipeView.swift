@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddRecipeView: View {
-    var recipe: Recipe
+    @EnvironmentObject var user: User
     @Environment(\.dismiss) var dismiss
     @State private var recipeName: String = ""
     @State private var image: UIImage?
@@ -18,27 +18,28 @@ struct AddRecipeView: View {
     let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     //array for mealTypes dropdown
     let mealTypes = ["Breakfast", "Lunch", "Dinner"]
+    var recipe: Recipe
     
-    var sampleMeal = Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image")
+//    var sampleMeal = Meal(type: "Breakfast", name: "Pancakes", imageName: "Pancake Image")
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20){
             HStack {
                 //recipe icon/image
-                if let imageName = sampleMeal.imageName, let uiImage = UIImage(named: imageName) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 50)
-                        .cornerRadius(10)
-                }
-                //if no image saved for recipe
-                else {
-                    Text("No image available")
-                        .foregroundColor(.gray)
-                }
+//                if let imageName = .imageName, let uiImage = UIImage(named: imageName) {
+//                    Image(uiImage: uiImage)
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(height: 50)
+//                        .cornerRadius(10)
+//                }
+//                //if no image saved for recipe
+//                else {
+//                    Text("No image available")
+//                        .foregroundColor(.gray)
+//                }
                 //recipe name
-                Text(sampleMeal.name)
+                Text(recipe.name)
                     .font(.largeTitle)
                     .fontWeight(.bold)
             }
@@ -92,7 +93,15 @@ struct AddRecipeView: View {
                 // Space between buttons
                 Spacer()
                 
-                NavigationLink(destination: WeeklyMealPlanView(weekData: sampleWeekData)) {
+                Button(action: {
+                    let newMeal = Meal(type: mealType, recipe: recipe)
+                    // add the new meal to meals array of the specific Day object
+                    if let index = user.mealPlan.firstIndex(where: { $0.name == day }) {
+                        user.mealPlan[index].meals.append(newMeal)
+                    }
+                    print(user.mealPlan[0].meals[0].type)
+                    dismiss()
+                }) {
                     Text("Add")
                         .fontWeight(.bold)
                         .padding()
@@ -101,6 +110,7 @@ struct AddRecipeView: View {
                         .cornerRadius(10)
                 }
                 .buttonStyle(PlainButtonStyle())
+
             }
             
         }
@@ -110,5 +120,5 @@ struct AddRecipeView: View {
 
 #Preview {
 //    AddRecipeView(recipe: Recipeee(name: "Pasta", imageName: "pasta_icon", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3", "Ingredient 4", "Ingredient 5", "Ingredient 6", "Ingredient 7", "Ingredient 8", "Ingredient 9", "Ingredient 10"], instructions: ["Step one", "Step two", "Step three", "Step three", "Step four", "Step five", "Step six", "Step seven", "Step eight", "Step nine", "Step ten"], time: "10 min"))
-//    AddRecipeView()
+    //AddRecipeView(recipe: recipe)
 }

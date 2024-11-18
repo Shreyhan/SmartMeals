@@ -10,27 +10,30 @@ import SwiftData
 
 @main
 struct SmartMealsApp: App {
+    @StateObject private var user = User() // Initialize the User object here
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(user) // Pass the User object to the environment
                 .modelContainer(for: [User.self, GroceryItem.self, Recipe.self])
         }
     }
 }
 
-//define a meal structure
-struct Meal {
-    //specify Breakfast, Lunch, or Dinner
-    var type: String
-    var name: String
-    var imageName: String?
-}
-//define day structure
-struct Day {
-    var name: String
-    var meals: [Meal]
-    var notes: String? //optional dietary notes for day
-}
+////define a meal structure
+//struct Meal {
+//    //specify Breakfast, Lunch, or Dinner
+//    var type: String
+//    var name: String
+//    var imageName: String?
+//}
+////define day structure
+//struct Day {
+//    var name: String
+//    var meals: [Meal]
+//    var notes: String? //optional dietary notes for day
+//}
 
 struct Recipeee {
     let name: String
