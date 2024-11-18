@@ -32,4 +32,4 @@ jobs:
     - name: Set up Xcode
       run: sudo xcode-select -switch /Applications/Xcode_16.1.app
     - name: Run tests
-      run: xcodebuild -scheme SmartMeals -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' test -only-testing:$(matrix.test_group)
+      run: xcodebuild -scheme SmartMeals -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' test -only-testing:${{ matrix.test_group }}
