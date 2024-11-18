@@ -11,6 +11,7 @@ import SwiftData
 struct BudgetTrackingView: View {
     @Environment(\.modelContext) private var context
     @Query private var users: [User]
+    @Query private var GroceryList: [GroceryItem]
     @State var totalGroceryCost: Double = 0.0
     
     
@@ -82,12 +83,14 @@ struct BudgetTrackingView: View {
     }
     
     func calculateTotalGroceryCost(for user: User) {
-            var totalCost = 0.0
-            for item in user.groceryList {
+        var totalCost = 0.0
+        for item in GroceryList {
+            if (item.isChecked) {
                 totalCost += item.price * Double(item.quantity)
             }
-            totalGroceryCost = totalCost
         }
+        totalGroceryCost = totalCost
+    }
 }
 
 #Preview {

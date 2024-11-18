@@ -61,12 +61,14 @@ struct EditMealPlanView: View {
                         }
                     }
                 }
+                .listStyle(PlainListStyle())
                 HStack {
                     Button(action: {
                         dismiss()
                     }) {
                         Text("Cancel")
                             .frame(maxWidth: .infinity)
+                            .frame(height: 20)
                             .padding()
                             .background(Color.red)
                             .foregroundColor(.white)
@@ -77,8 +79,9 @@ struct EditMealPlanView: View {
                     NavigationLink(destination: {
                         CreateRecipeView()
                     }, label: {
-                        Text("Create New Recipe")
+                        Text("Create Recipe")
                             .frame(maxWidth: .infinity)
+                            .frame(height: 20)
                             .padding()
                             .background(Color.blue)
                             .foregroundColor(.white)
