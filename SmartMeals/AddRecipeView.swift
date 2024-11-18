@@ -99,7 +99,7 @@ struct AddRecipeView: View {
                     if let index = user.mealPlan.firstIndex(where: { $0.name == day }) {
                         user.mealPlan[index].meals.append(newMeal)
                     }
-                    print(user.mealPlan[0].meals[0].type)
+//                    print(user.mealPlan[0].meals[0].type)
                     dismiss()
                 }) {
                     Text("Add")
