@@ -10,25 +10,34 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
-    runs-on: macos-latest
+  run-specific-test:
+    runs-on: macos-13
 
     steps:
     - uses: actions/checkout@v4
+    
+    # Clean Derived Data
+    - name: Clean Derived Data
+      run: xcodebuild clean -scheme SmartMeals -derivedDataPath DerivedData
 
-    # Set up Xcode environment
+    # Set up Derived Data Path
+    - name: Set Derived Data Path
+      run: mkdir -p DerivedData
+
+    # Install xcpretty
+    - name: Install xcpretty
+      run: gem install xcpretty
+
+    # Shutdown and restart simulators
+    - name: Shutdown and restart simulators
+      run: |
+        xcrun simctl shutdown all
+        xcrun simctl erase all
+
+    # Set up Xcode version
     - name: Set up Xcode
-      run: sudo xcode-select -switch /Applications/Xcode_16.1.app
+      run: sudo xcode-select -switch /Applications/Xcode_15.4.app
 
-      # Build the project using xcodebuild
-    - name: Build the project
-      run: xcodebuild -scheme SmartMeals -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' build
-
-      # Run the specific test target using xcodebuild
+    # Run specific test target using xcodebuild with optimizations
     - name: Run specific test
-      run: xcodebuild -scheme SmartMeals -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' test -only-testing:SmartMealsUITests
-
-    # - name: Run UI Tests
-    #   run: xcodebuild -scheme SmartMeals -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' test -only-testing:SmartMealsUITests
-    #   timeout-minutes: 20
+      run: xcodebuild -scheme SmartMeals -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone SE (2nd generation),OS=16.0' test -only-testing:SmartMealsUITests -derivedDataPath DerivedData GCC_GENERATE_DEBUGGING_SYMBOLS=NO COMPILER_INDEX_STORE_ENABLE=NO | xcpretty
