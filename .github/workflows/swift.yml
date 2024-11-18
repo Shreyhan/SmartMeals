@@ -16,5 +16,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Run tests
-      run: swift test --filter SmartMealsUITests
+
+    # Set up Xcode environment
+    - name: Set up Xcode
+      run: sudo xcode-select -switch /Applications/Xcode.app
+
+    # Build the project using xcodebuild
+    - name: Build the project
+      run: xcodebuild -scheme SmartMeals -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' build
+
+    # Run the specific test target using xcodebuild
+    - name: Run specific test
+      run: xcodebuild -scheme SmartMeals -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' test -only-testing:SmartMealsUITests
