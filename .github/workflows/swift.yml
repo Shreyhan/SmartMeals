@@ -20,11 +20,16 @@ jobs:
     # Set up Xcode environment
     - name: Set up Xcode
       run: sudo xcode-select -switch /Applications/Xcode_16.1.app
-
-    # Build the project using xcodebuild
-    - name: Build the project
-      run: xcodebuild -scheme SmartMeals -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' build
-
-    # Run the specific test target using xcodebuild
-    - name: Run specific test
-      run: xcodebuild -scheme SmartMeals -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' test -only-testing:SmartMealsUITests
+      
+  test:
+    runs-on: macos-latest
+    needs: build
+    strategy:
+      matrix:
+        test_group: [ "SmartMealsUnitTests", "SmartMealsUITests" ]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Xcode
+      run: sudo xcode-select -switch /Applications/Xcode_16.1.app
+    - name: Run tests
+      run: xcodebuild -scheme SmartMeals -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' test -only-testing:$(matrix.test_group)
