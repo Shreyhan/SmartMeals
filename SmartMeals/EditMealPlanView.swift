@@ -71,7 +71,7 @@ struct EditMealPlanView: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                             .padding([.leading, .trailing], 20)
-                    })
+                    }).id(UUID())
                 }
                 Spacer()
             }
