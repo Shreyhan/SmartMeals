@@ -80,7 +80,8 @@ struct ContentView: View {
             } else {
                 UserFirstLogin()
             }
-        }.onAppear {
+        }
+        .onAppear {
             let user = User(firstName: "firstName", lastName: "lastName")
             context.insert(user)
         }
