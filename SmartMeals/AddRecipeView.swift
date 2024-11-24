@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddRecipeView: View {
-    @EnvironmentObject var user: User
     @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) private var context
+//    @Binding var user: User
     @State private var recipeName: String = ""
     @State private var image: UIImage?
     @State private var day: String = "Monday"
     @State private var mealType: String = "Breakfast"
+    @Query private var plan: [MealPlan]
     //array for days dropdown
     let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     //array for mealTypes dropdown
@@ -82,43 +85,61 @@ struct AddRecipeView: View {
                    dismiss()
                 }) {
                     Text("Cancel")
-                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 20)
                         .padding()
                         .background(Color.red)
                         .foregroundColor(.white)
                         .cornerRadius(10)
+                        .padding([.leading, .trailing], 10)
                 }
-                .buttonStyle(PlainButtonStyle())
                 
                 // Space between buttons
                 Spacer()
                 
                 Button(action: {
-                    let newMeal = Meal(type: mealType, recipe: recipe)
-                    // add the new meal to meals array of the specific Day object
-                    if let index = user.mealPlan.firstIndex(where: { $0.name == day }) {
-                        user.mealPlan[index].meals.append(newMeal)
-                    }
-//                    print(user.mealPlan[0].meals[0].type)
+                    saveMeal()
                     dismiss()
                 }) {
                     Text("Add")
-                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 20)
                         .padding()
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(10)
+                        .padding([.leading, .trailing], 10)
                 }
-                .buttonStyle(PlainButtonStyle())
 
             }
             
         }
         .padding()
     }
+    
+    private func saveMeal() {
+        let mealPlan = plan.first!
+        let newMeal = Meal(type: mealType, recipe: recipe)
+        // Find the index of the day to update
+        if let dayIndex = mealPlan.days.firstIndex(where: { $0.name == day }) {
+            if let mealIndex = mealPlan.days[dayIndex].meals.firstIndex(where: { $0.type == mealType}) {
+                mealPlan.days[dayIndex].meals[mealIndex] = newMeal
+            } else {
+                mealPlan.days[dayIndex].meals.append(newMeal)
+            }
+        } else {
+            print("Invalid day selected")
+        }
+        
+        // Save to persistent store
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save meal: \(error.localizedDescription)")
+        }
+    }
 }
 
 #Preview {
-//    AddRecipeView(recipe: Recipeee(name: "Pasta", imageName: "pasta_icon", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3", "Ingredient 4", "Ingredient 5", "Ingredient 6", "Ingredient 7", "Ingredient 8", "Ingredient 9", "Ingredient 10"], instructions: ["Step one", "Step two", "Step three", "Step three", "Step four", "Step five", "Step six", "Step seven", "Step eight", "Step nine", "Step ten"], time: "10 min"))
-    //AddRecipeView(recipe: recipe)
+    AddRecipeView(recipe: Recipe(name: "Pasta", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"], instructions: ["Step one", "Step two", "Step three"], time: "10 min"))
 }

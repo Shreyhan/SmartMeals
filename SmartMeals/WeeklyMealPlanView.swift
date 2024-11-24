@@ -49,8 +49,10 @@ import SwiftData
 
 struct WeeklyMealPlanView: View {
     //use to track changes in User model
-   // @Query private var users: [User]
-    @EnvironmentObject var user: User
+    @Query private var users: [User]
+    @Query private var plan: [MealPlan]
+    @Environment(\.modelContext) private var context
+//    @EnvironmentObject var user: User
   
     //list of type Day
     //var weekData: [Day]
@@ -66,7 +68,7 @@ struct WeeklyMealPlanView: View {
                         .fontWeight(.bold)
                 }
                 //for each day in meal plan, display recipes for each meal time
-                ForEach(user.mealPlan, id: \.name) { day in
+                ForEach(plan.first!.days.sorted(by: { $0.order < $1.order }), id: \.name) { day in
                     VStack(alignment: .leading, spacing: 10){
                         HStack {
                             Text(day.name)
@@ -86,7 +88,10 @@ struct WeeklyMealPlanView: View {
                             })
                         }
                     }
-                    ForEach(day.meals, id: \.type) { meal in
+                    ForEach(day.meals.sorted (by: { meal1, meal2 in
+                       let order = ["Breakfast", "Lunch", "Dinner"]
+                       return order.firstIndex(of: meal1.type) ?? Int.max < order.firstIndex(of: meal2.type) ?? Int.max
+                   }), id: \.self) { meal in
                         HStack {
                             //display image
                             //Image(meal.recipe.image != nil ? Image(uiImage: UIImage(data: meal.recipe.image!)!) : UIImage(systemName: "photo")) //
@@ -98,53 +103,28 @@ struct WeeklyMealPlanView: View {
                         }
                     }
                         
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                        //adds first meal for each type for each day
-                        //$0 represents each meal in array
-                        //if no meal for that type, empty string
-//                        HStack {
-//                            Image(day.meals.first(where: { $0.type == "Breakfast" })?.imageName ?? "image") // Use a placeholder if no image exists
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 20, height: 20)
-//                            Text("Breakfast: \(day.meals.first(where: { $0.type == "Breakfast" })?.name ?? "")")
-//                                .padding(.vertical, 2)
-//                        }
-//                        HStack {
-//                            Image(day.meals.first(where: { $0.type == "Lunch" })?.imageName ?? "image") // Use a placeholder if no image exists
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 20, height: 20)
-//                            Text("Lunch: \(day.meals.first(where: { $0.type == "Lunch" })?.name ?? "")")
-//                                .padding(.vertical, 2)
-//                        }
-//                        HStack {
-//                            Image(day.meals.first(where: { $0.type == "Dinner" })?.imageName ?? "image") // Use a placeholder if no image exists
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 20, height: 20)
-//                            Text("Dinner: \(day.meals.first(where: { $0.type == "Dinner" })?.name ?? "")")
-//                                .padding(.vertical, 2)
-//                        }
                     Divider()
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 10)
                 }
+            
+            Button (action: {
+                context.delete(plan.first!)
+                let emptyPlan = MealPlan()
+                context.insert(emptyPlan)
+                }) {
+                    Text("Reset Meal Plan")
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 20)
+                        .padding()
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                        .padding([.leading, .trailing], 20)
+                }
             }
-                .padding()
+            .padding()
         }
 }
 

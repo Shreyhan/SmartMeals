@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct RecipeView: View {
     //use to dismiss and return to previous view
@@ -69,8 +70,9 @@ struct RecipeView: View {
                         .padding([.leading, .trailing], 5)
                 }
 
-                
-                    NavigationLink(destination: AddRecipeView(recipe: recipe)) {
+                NavigationLink(destination: {
+                    AddRecipeView(recipe: recipe)
+                }, label: {
                     Text("Add to Plan")
                         .frame(maxWidth: .infinity)
                         .padding()
@@ -78,7 +80,7 @@ struct RecipeView: View {
                         .foregroundColor(.white)
                         .cornerRadius(10)
                         .padding([.leading, .trailing], 5)
-                }
+                }).id(UUID())
             }
         }
         .padding()

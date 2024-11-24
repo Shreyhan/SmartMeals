@@ -21,7 +21,7 @@ class User: ObservableObject{
     var vegetarian: Bool
     var glutenFree: Bool
     var nutAllergy: Bool
-    var mealPlan: [Day]
+//    var mealPlan: [Day]
     
     init(firstName: String = "First", lastName: String = "Last", picture: String = "defaultUser", numRoommates: Int = 1, budget: Double = 0.0, vegan: Bool = false, vegetarian: Bool = false, glutenFree: Bool = false, nutAllergy: Bool = false) {
         self.firstName = firstName
@@ -34,7 +34,7 @@ class User: ObservableObject{
         self.vegetarian = vegetarian
         self.glutenFree = glutenFree
         self.nutAllergy = nutAllergy
-        self.mealPlan = [Day(name:"Monday", meals: []), Day(name:"Tuesday", meals: []), Day(name:"Wednesday", meals: []), Day(name:"Thursday", meals: []), Day(name:"Friday", meals: []), Day(name:"Saturday", meals: []), Day(name:"Sunday", meals: [])]
+//        self.mealPlan = [Day(name:"Monday", meals: []), Day(name:"Tuesday", meals: []), Day(name:"Wednesday", meals: []), Day(name:"Thursday", meals: []), Day(name:"Friday", meals: []), Day(name:"Saturday", meals: []), Day(name:"Sunday", meals: [])]
     }
 }
 
@@ -80,10 +80,12 @@ class Recipe {
 class Day {
     var name: String
     var meals: [Meal]
+    var order: Int
     
-    init(name: String, meals: [Meal]) {
+    init(name: String, meals: [Meal], order: Int) {
         self.name = name
         self.meals = meals
+        self.order = order
     }
 }
 
@@ -96,5 +98,22 @@ class Meal {
     init(type: String, recipe: Recipe) {
         self.type = type
         self.recipe = recipe
+    }
+}
+
+@Model
+class MealPlan {
+    var days: [Day]
+    
+    init() {
+        self.days = [
+            Day(name: "Monday", meals: [], order: 1),
+            Day(name: "Tuesday", meals: [], order: 2),
+            Day(name: "Wednesday", meals: [], order: 3),
+            Day(name: "Thursday", meals: [], order: 4),
+            Day(name: "Friday", meals: [], order: 5),
+            Day(name: "Saturday", meals: [], order: 6),
+            Day(name: "Sunday", meals: [], order: 7)
+        ]
     }
 }

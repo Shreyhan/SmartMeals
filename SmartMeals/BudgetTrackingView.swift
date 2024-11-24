@@ -11,6 +11,7 @@ import SwiftData
 struct BudgetTrackingView: View {
     @Environment(\.modelContext) private var context
     @Query private var users: [User]
+    @Query private var days: [Day]
     @Query private var GroceryList: [GroceryItem]
     @State var totalGroceryCost: Double = 0.0
     
@@ -70,7 +71,6 @@ struct BudgetTrackingView: View {
                     Spacer()
                 }
                 .padding(10)
-
                 
                 Spacer()
                 Spacer()

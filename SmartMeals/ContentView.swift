@@ -84,6 +84,14 @@ struct ContentView: View {
         .onAppear {
             let user = User(firstName: "firstName", lastName: "lastName")
             context.insert(user)
+            
+            let plan = MealPlan()
+            context.insert(plan)
+            do {
+                try context.save()
+            } catch {
+                print("Failed to delete recipe: \(error)")
+            }
         }
     }
     

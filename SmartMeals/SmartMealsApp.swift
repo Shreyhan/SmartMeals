@@ -16,7 +16,7 @@ struct SmartMealsApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(user) // Pass the User object to the environment
-                .modelContainer(for: [User.self, GroceryItem.self, Recipe.self])
+                .modelContainer(for: [User.self, GroceryItem.self, Recipe.self, Day.self, Meal.self, MealPlan.self])
         }
     }
 }

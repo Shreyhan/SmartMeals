@@ -68,6 +68,7 @@ struct GroceryListView: View {
                         .cornerRadius(10)
                         .padding([.leading, .trailing], 20)
                 })
+                .padding()
             }
             .listStyle(PlainListStyle())
         }
