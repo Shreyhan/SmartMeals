@@ -73,7 +73,7 @@ struct EditMealPlanView: View {
                             .background(Color.red)
                             .foregroundColor(.white)
                             .cornerRadius(10)
-                            .padding([.leading, .trailing], 20)
+                            .padding([.leading, .trailing], 10)
                     }
 
                     NavigationLink(destination: {
@@ -86,7 +86,7 @@ struct EditMealPlanView: View {
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
-                            .padding([.leading, .trailing], 20)
+                            .padding([.leading, .trailing], 10)
                     }).id(UUID())
                 }
                 Spacer()
