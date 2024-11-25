@@ -160,7 +160,7 @@ struct CreateRecipeView: View {
                 let ingredients: [String] = ingredientsString.split(separator: "\n").map { String($0) }
                 let steps: [String] = stepsString.split(separator: "\n").map { String($0) }
                 let prep: String = String(prepNum) + " " + prepTime
-                let image = image?.pngData()
+                let image: Data = image?.pngData() ?? UIImage(systemName: "fork.knife")!.pngData()!
                 let recipe: Recipe = Recipe(name: recipeName, image: image, ingredients: ingredients, instructions: steps, time: prep)
                 context.insert(recipe)
                 do {

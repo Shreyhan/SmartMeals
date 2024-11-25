@@ -16,11 +16,13 @@ struct RecipeView: View {
     var body: some View {
         VStack {
             HStack {
-                /*
-                Image(recipe.imageName)
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .clipShape(Circle())*/
+                if let imageData = recipe.image, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100, height: 100)
+                        .shadow(radius: 5)
+                }
                 Text(recipe.name)
                     .font(.largeTitle)
                     .fontWeight(.bold)
@@ -86,6 +88,7 @@ struct RecipeView: View {
         .padding()
         .navigationTitle("Recipe View")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarHidden(true)
     }
 }
 

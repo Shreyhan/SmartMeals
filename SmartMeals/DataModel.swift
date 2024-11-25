@@ -16,12 +16,10 @@ class User: ObservableObject{
     var picture: String
     var numRoommates: Int
     var budget: Double
-    var groceryList: [GroceryItem]
     var vegan: Bool
     var vegetarian: Bool
     var glutenFree: Bool
     var nutAllergy: Bool
-//    var mealPlan: [Day]
     
     init(firstName: String = "First", lastName: String = "Last", picture: String = "defaultUser", numRoommates: Int = 1, budget: Double = 0.0, vegan: Bool = false, vegetarian: Bool = false, glutenFree: Bool = false, nutAllergy: Bool = false) {
         self.firstName = firstName
@@ -29,12 +27,10 @@ class User: ObservableObject{
         self.picture = picture
         self.numRoommates = numRoommates
         self.budget = budget
-        self.groceryList = []
         self.vegan = vegan
         self.vegetarian = vegetarian
         self.glutenFree = glutenFree
         self.nutAllergy = nutAllergy
-//        self.mealPlan = [Day(name:"Monday", meals: []), Day(name:"Tuesday", meals: []), Day(name:"Wednesday", meals: []), Day(name:"Thursday", meals: []), Day(name:"Friday", meals: []), Day(name:"Saturday", meals: []), Day(name:"Sunday", meals: [])]
     }
 }
 
@@ -66,7 +62,7 @@ class Recipe {
     var instructions: [String]
     var time: String
     
-    init(name: String, image: Data? = UIImage(systemName: "fork.knifw")?.pngData(), ingredients: [String], instructions: [String], time: String) {
+    init(name: String, image: Data? = UIImage(systemName: "fork.knife")?.pngData(), ingredients: [String], instructions: [String], time: String) {
         self.name = name
         self.image = image
         self.ingredients = ingredients
