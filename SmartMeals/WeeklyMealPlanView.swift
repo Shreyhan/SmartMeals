@@ -52,13 +52,13 @@ struct WeeklyMealPlanView: View {
     @Query private var users: [User]
     @Query private var plan: [MealPlan]
     @Environment(\.modelContext) private var context
+  
 //    @EnvironmentObject var user: User
   
     //list of type Day
     //var weekData: [Day]
     var body: some View {
         //let first: User = users.first!
-        
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading) {
@@ -93,14 +93,21 @@ struct WeeklyMealPlanView: View {
                        return order.firstIndex(of: meal1.type) ?? Int.max < order.firstIndex(of: meal2.type) ?? Int.max
                    }), id: \.self) { meal in
                         HStack {
-                            //display image
-                            //Image(meal.recipe.image != nil ? Image(uiImage: UIImage(data: meal.recipe.image!)!) : UIImage(systemName: "photo")) //
-                            //                                .resizable()
-                            //                                .scaledToFit()
-                            //                                .frame(width: 20, height: 20)
+                            //load image if exists
+                            if let imageData = meal.recipe.image, let uiImage = UIImage(data: imageData) {
+                                        Image(uiImage: uiImage)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 50, height: 50)
+                                            //ensure image fills circle
+                                            .aspectRatio(contentMode: .fill)
+                                            //ensures images are circular icons
+//                                            .clipShape(Circle())
+                                }
                             Text("\(meal.type): \(meal.recipe.name)")
                                 .padding(.vertical, 2)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                         
                     Divider()

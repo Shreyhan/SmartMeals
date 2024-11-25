@@ -97,6 +97,7 @@ class Meal {
     }
 }
 
+//New data model for user's MealPlan(stores meals for each day of week)
 @Model
 class MealPlan {
     var days: [Day]
