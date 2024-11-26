@@ -51,6 +51,7 @@ struct WeeklyMealPlanView: View {
     //use to track changes in User model
     @Query private var users: [User]
     @Query private var plan: [MealPlan]
+    @Query private var recipes: [Recipe]
     @Environment(\.modelContext) private var context
   
 //    @EnvironmentObject var user: User
@@ -88,10 +89,7 @@ struct WeeklyMealPlanView: View {
                             })
                         }
                     }
-                    ForEach(day.meals.sorted (by: { meal1, meal2 in
-                       let order = ["Breakfast", "Lunch", "Dinner"]
-                       return order.firstIndex(of: meal1.type) ?? Int.max < order.firstIndex(of: meal2.type) ?? Int.max
-                   }), id: \.self) { meal in
+                    ForEach(day.meals.sorted(by: mealSortingOrder), id: \.self) { meal in
                         HStack {
                             //load image if exists
                             if let imageData = meal.recipe.image, let uiImage = UIImage(data: imageData) {
@@ -104,8 +102,13 @@ struct WeeklyMealPlanView: View {
                                             //ensures images are circular icons
 //                                            .clipShape(Circle())
                                 }
-                            Text("\(meal.type): \(meal.recipe.name)")
-                                .padding(.vertical, 2)
+                            NavigationLink(destination: RecipeView(showButtons: false, recipe: meal.recipe)) {
+                                Text("\(meal.type): \(meal.recipe.name)")
+                                    .foregroundColor(Color.black)
+                                    .padding(.vertical, 2)
+                            }
+//                            Text("\(meal.type): \(meal.recipe.name)")
+//                                .padding(.vertical, 2)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
@@ -133,6 +136,11 @@ struct WeeklyMealPlanView: View {
             }
             .padding()
         }
+    
+    func mealSortingOrder(meal1: Meal, meal2: Meal) -> Bool {
+        let order = ["Breakfast", "Lunch", "Dinner"]
+        return order.firstIndex(of: meal1.type) ?? Int.max < order.firstIndex(of: meal2.type) ?? Int.max
+    }
 }
 
 #Preview {

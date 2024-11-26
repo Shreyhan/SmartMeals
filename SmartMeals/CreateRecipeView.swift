@@ -106,7 +106,7 @@ struct CreateRecipeView: View {
                             photoLibrary: .shared()) {
                                 HStack {
                                     Image(systemName: "photo.badge.plus")
-                                    Text("Select a photo")
+                                    Text("Upload")
                                 }
                                 .frame(minWidth: 40, maxHeight: 10)
                                 .padding()

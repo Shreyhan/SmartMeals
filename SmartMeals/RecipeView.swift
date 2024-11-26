@@ -11,6 +11,8 @@ import SwiftData
 struct RecipeView: View {
     //use to dismiss and return to previous view
     @Environment(\.dismiss) var dismiss
+    @State var showButtons: Bool
+    
     var recipe: Recipe
 //    var day: Day
     var body: some View {
@@ -59,11 +61,12 @@ struct RecipeView: View {
 //            .scrollContentBackground(.hidden)
             
             
+
             HStack {
                 Button(action: {
                     dismiss()
                 }) {
-                    Text("Cancel")
+                    Text(showButtons ? "Cancel" : "Go back")
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(Color.red)
@@ -71,18 +74,19 @@ struct RecipeView: View {
                         .cornerRadius(10)
                         .padding([.leading, .trailing], 5)
                 }
-
-                NavigationLink(destination: {
-                    AddRecipeView(recipe: recipe)
-                }, label: {
-                    Text("Add to Plan")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .padding([.leading, .trailing], 5)
-                }).id(UUID())
+                if (showButtons == true) {
+                    NavigationLink(destination: {
+                        AddRecipeView(recipe: recipe)
+                    }, label: {
+                        Text("Add to Plan")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .padding([.leading, .trailing], 5)
+                    }).id(UUID())
+                }
             }
         }
         .padding()

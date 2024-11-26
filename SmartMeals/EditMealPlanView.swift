@@ -42,7 +42,7 @@ struct EditMealPlanView: View {
                              */
                             //navigates to RecipeView when click on recipe
                             NavigationLink(destination: {
-                                RecipeView(recipe: recipe)
+                                RecipeView(showButtons: true, recipe: recipe)
                             }, label: {
                                 Text(recipe.name)
                                     .font(.headline)
