@@ -82,6 +82,7 @@ struct ContentView: View {
             }
         }
         .onAppear {
+            // TO TEST SO THAT LOGIN SCREEN DOESNT SHOW UP WHILE TESTING!
             let user = User(firstName: "firstName", lastName: "lastName")
             context.insert(user)
             
