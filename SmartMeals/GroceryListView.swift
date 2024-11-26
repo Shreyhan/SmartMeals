@@ -46,9 +46,6 @@ struct GroceryListView: View {
                             }
                         }
                     }
-//                    .onDelete { indexSet in
-//                        groceryItems.remove(atOffsets: indexSet)
-//                    }
                     .onDelete { indexSet in
                         for index in indexSet {
                             context.delete(groceryItems[index])
@@ -57,18 +54,41 @@ struct GroceryListView: View {
                 }
                 .listStyle(PlainListStyle())
                 
-                NavigationLink(destination: {
-                    IngredientView()
-                }, label: {
-                    Text("Add an item")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .padding([.leading, .trailing], 20)
-                })
-                .padding()
+                HStack {
+                    NavigationLink(destination: {
+                        IngredientView()
+                    }, label: {
+                        Text("Add an item")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .padding([.leading, .trailing], 20)
+                    })
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        for groceryItem in groceryItems {
+                            context.delete(groceryItem)
+                        }
+                        do {
+                            try context.save()
+                        } catch {
+                            print("\(error.localizedDescription)")
+                        }
+                    }) {
+                        Text("Clear list")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.red)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .padding([.trailing], 20)
+                    }
+                }
+                .padding([.bottom])
             }
             .listStyle(PlainListStyle())
         }
