@@ -25,24 +25,45 @@ struct RecipeView: View {
                         .frame(width: 100, height: 100)
                         .shadow(radius: 5)
                 }
-                VStack {
-                    Text(recipe.name)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                    HStack {
-                        Text(recipe.dietaryRestrictions[0] ? "Vegan" : "")
-                        Text(recipe.dietaryRestrictions[1] ? "Vegetarian" : "")
-                        Text(recipe.dietaryRestrictions[2] ? "Gluten-Free" : "")
-                        Text(recipe.dietaryRestrictions[3] ? "Nut-Free" : "")
+                
+                GeometryReader { geometry in
+                    VStack(alignment: .leading) {
+                        Spacer()
+                        Text(recipe.name)
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .lineLimit(nil) // Allow unlimited lines for text wrapping
+                            .multilineTextAlignment(.leading)
+                            .frame(width: geometry.size.width, alignment: .leading) // Explicit width
+                        HStack {
+                            Text(recipe.dietaryRestrictions[0] ? "V" : "")
+                            Text(recipe.dietaryRestrictions[1] ? "VG" : "")
+                            Text(recipe.dietaryRestrictions[2] ? "GF" : "")
+                            Text(recipe.dietaryRestrictions[3] ? "NF" : "")
+                        }
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        Spacer()
                     }
-                    .font(.caption)
-                    .foregroundColor(.secondary)
                 }
+                
             }
             
-            Text("Cook time :")
-                .font(.headline)
-            Text(recipe.time + "\n")
+            Spacer()
+            
+            HStack {
+                VStack {
+                    Text("Cook time :")
+                        .font(.headline)
+                    Text(recipe.time)
+                }
+                Spacer()
+                VStack {
+                    Text("Serving size :")
+                        .font(.headline)
+                    Text(String(recipe.servings))
+                }
+            }
             
             
             Text("Ingredients :")
@@ -99,7 +120,7 @@ struct RecipeView: View {
                 }
             }
         }
-        .padding()
+//        .padding()
         .navigationTitle("Recipe View")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarHidden(true)

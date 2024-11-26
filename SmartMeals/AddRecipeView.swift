@@ -140,5 +140,5 @@ struct AddRecipeView: View {
 }
 
 #Preview {
-    AddRecipeView(recipe: Recipe(name: "Pasta", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"], instructions: ["Step one", "Step two", "Step three"], time: "10 min", dietaryRestrictions: [false, false, false, false]))
+    AddRecipeView(recipe: Recipe(name: "Pasta", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"], instructions: ["Step one", "Step two", "Step three"], time: "10 min", servings: 4, dietaryRestrictions: [false, false, false, false]))
 }

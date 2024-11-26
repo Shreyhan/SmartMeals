@@ -56,29 +56,22 @@ class GroceryItem: Identifiable {
 @Model
 class Recipe {
     var name: String
-//    var imageData: Data
     @Attribute(.externalStorage) var image: Data?
     var ingredients: [String]
     var instructions: [String]
     var time: String
+    var servings: Int
     // vegan, vegetarian, glutenfree, nutfree
     var dietaryRestrictions: [Bool]
-//    var vegan: Bool
-//    var vegetarian: Bool
-//    var glutenFree: Bool
-//    var nutFree: Bool
     
-    init(name: String, image: Data? = UIImage(systemName: "fork.knife")?.pngData(), ingredients: [String], instructions: [String], time: String, dietaryRestrictions: [Bool] = [false, false, false, false]) {
+    init(name: String, image: Data? = UIImage(systemName: "fork.knife")?.pngData(), ingredients: [String], instructions: [String], time: String, servings: Int, dietaryRestrictions: [Bool] = [false, false, false, false]) {
         self.name = name
         self.image = image
         self.ingredients = ingredients
         self.instructions = instructions
         self.time = time
+        self.servings = servings
         self.dietaryRestrictions = dietaryRestrictions
-//        self.vegan = vegan
-//        self.vegetarian = vegetarian
-//        self.glutenFree = glutenFree
-//        self.nutFree = nutFree
     }
 }
 

@@ -103,7 +103,7 @@ struct CreateRecipeView: View {
                     
                     // dietary preferences
                     VStack(alignment: .leading) {
-                        Text("Dietary Preferences")
+                        Text("Dietary Restrictions")
                             .font(.headline)
                         Toggle("Vegan", isOn: $isVegan)
                         Toggle("Vegetarian", isOn: $isVegetarian)
@@ -177,7 +177,7 @@ struct CreateRecipeView: View {
                 let steps: [String] = stepsString.split(separator: "\n").map { String($0) }
                 let prep: String = String(prepNum) + " " + prepTime
                 let image: Data = image?.pngData() ?? UIImage(systemName: "fork.knife")!.pngData()!
-                let recipe: Recipe = Recipe(name: recipeName, image: image, ingredients: ingredients, instructions: steps, time: prep, dietaryRestrictions: [isVegan, isVegetarian, isGlutenFree, isNutFree])
+                let recipe: Recipe = Recipe(name: recipeName, image: image, ingredients: ingredients, instructions: steps, time: prep, servings: servings, dietaryRestrictions: [isVegan, isVegetarian, isGlutenFree, isNutFree])
                 context.insert(recipe)
                 do {
                     try context.save()
