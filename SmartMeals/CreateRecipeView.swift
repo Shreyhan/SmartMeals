@@ -25,6 +25,11 @@ struct CreateRecipeView: View {
     @State private var servings: Int = 1
     @State private var image: UIImage?
     
+    @State private var isVegan: Bool = false
+    @State private var isVegetarian: Bool = false
+    @State private var isGlutenFree: Bool = false
+    @State private var isNutFree: Bool = false
+    
     var body: some View {
         NavigationView {
     
@@ -96,6 +101,17 @@ struct CreateRecipeView: View {
                         .fixedSize()
                     }
                     
+                    // dietary preferences
+                    VStack(alignment: .leading) {
+                        Text("Dietary Preferences")
+                            .font(.headline)
+                        Toggle("Vegan", isOn: $isVegan)
+                        Toggle("Vegetarian", isOn: $isVegetarian)
+                        Toggle("Gluten-Free", isOn: $isGlutenFree)
+                        Toggle("Nut-Free", isOn: $isNutFree)
+                    }
+                    .padding(.bottom)
+                    
                     HStack {
                         Text("Upload Image")
                             .font(.headline)
@@ -161,12 +177,12 @@ struct CreateRecipeView: View {
                 let steps: [String] = stepsString.split(separator: "\n").map { String($0) }
                 let prep: String = String(prepNum) + " " + prepTime
                 let image: Data = image?.pngData() ?? UIImage(systemName: "fork.knife")!.pngData()!
-                let recipe: Recipe = Recipe(name: recipeName, image: image, ingredients: ingredients, instructions: steps, time: prep)
+                let recipe: Recipe = Recipe(name: recipeName, image: image, ingredients: ingredients, instructions: steps, time: prep, dietaryRestrictions: [isVegan, isVegetarian, isGlutenFree, isNutFree])
                 context.insert(recipe)
                 do {
                     try context.save()
                 } catch {
-                    print("Failed to save recipe: \(error)")
+                    print("DID NOT WEORKFailed to save recipe: \(error)")
                 }
                 dismiss()
             }) {

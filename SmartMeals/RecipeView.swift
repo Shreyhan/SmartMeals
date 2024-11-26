@@ -25,9 +25,19 @@ struct RecipeView: View {
                         .frame(width: 100, height: 100)
                         .shadow(radius: 5)
                 }
-                Text(recipe.name)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+                VStack {
+                    Text(recipe.name)
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    HStack {
+                        Text(recipe.dietaryRestrictions[0] ? "Vegan" : "")
+                        Text(recipe.dietaryRestrictions[1] ? "Vegetarian" : "")
+                        Text(recipe.dietaryRestrictions[2] ? "Gluten-Free" : "")
+                        Text(recipe.dietaryRestrictions[3] ? "Nut-Free" : "")
+                    }
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                }
             }
             
             Text("Cook time :")

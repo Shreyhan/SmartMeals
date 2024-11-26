@@ -30,18 +30,13 @@ struct AddRecipeView: View {
             VStack(alignment: .leading, spacing: 20){
                 HStack {
                     //recipe icon/image
-    //                if let imageName = .imageName, let uiImage = UIImage(named: imageName) {
-    //                    Image(uiImage: uiImage)
-    //                        .resizable()
-    //                        .scaledToFit()
-    //                        .frame(height: 50)
-    //                        .cornerRadius(10)
-    //                }
-    //                //if no image saved for recipe
-    //                else {
-    //                    Text("No image available")
-    //                        .foregroundColor(.gray)
-    //                }
+                    if let imageData = recipe.image, let uiImage = UIImage(data: imageData) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                            .shadow(radius: 5)
+                    }
                     //recipe name
                     Text(recipe.name)
                         .font(.largeTitle)
@@ -145,5 +140,5 @@ struct AddRecipeView: View {
 }
 
 #Preview {
-    AddRecipeView(recipe: Recipe(name: "Pasta", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"], instructions: ["Step one", "Step two", "Step three"], time: "10 min"))
+    AddRecipeView(recipe: Recipe(name: "Pasta", ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"], instructions: ["Step one", "Step two", "Step three"], time: "10 min", dietaryRestrictions: [false, false, false, false]))
 }

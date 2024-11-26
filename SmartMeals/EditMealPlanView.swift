@@ -16,6 +16,8 @@ struct EditMealPlanView: View {
 //    @State var recipesold = [Recipeee]()
     //fetch recipes from SwiftData
     @Query private var recipes: [Recipe]
+    @Query private var users: [User]
+    private var user: User { users.first! }
     //the specific day being edited
 //    var day: Day
     //search bar
@@ -30,16 +32,20 @@ struct EditMealPlanView: View {
                 //list of recipes displayed from recipesold array
                 List {
                     ForEach(recipes.filter { recipe in
-                        search.isEmpty || recipe.name.localizedCaseInsensitiveContains(search)
+                        (search.isEmpty || recipe.name.localizedCaseInsensitiveContains(search)) &&
+                        (user.vegan ? recipe.dietaryRestrictions[0] : true) &&
+                        (user.vegetarian ? (recipe.dietaryRestrictions[1] || recipe.dietaryRestrictions[0]) : true) &&
+                        (user.glutenFree ? recipe.dietaryRestrictions[2] : true) &&
+                        (user.nutAllergy ? recipe.dietaryRestrictions[3] : true)
                     }, id: \.name) { recipe in
                         HStack {
-                            //recipe image
-                            /*
-                            Image(recipe.imageName)
-                                .resizable()
-                                .frame(width: 40, height: 40)
-                                .clipShape(Circle())
-                             */
+                            if let imageData = recipe.image, let uiImage = UIImage(data: imageData) {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 50, height: 50)
+                                    .shadow(radius: 5)
+                            }
                             //navigates to RecipeView when click on recipe
                             NavigationLink(destination: {
                                 RecipeView(showButtons: true, recipe: recipe)

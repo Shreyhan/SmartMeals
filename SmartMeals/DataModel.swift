@@ -61,13 +61,24 @@ class Recipe {
     var ingredients: [String]
     var instructions: [String]
     var time: String
+    // vegan, vegetarian, glutenfree, nutfree
+    var dietaryRestrictions: [Bool]
+//    var vegan: Bool
+//    var vegetarian: Bool
+//    var glutenFree: Bool
+//    var nutFree: Bool
     
-    init(name: String, image: Data? = UIImage(systemName: "fork.knife")?.pngData(), ingredients: [String], instructions: [String], time: String) {
+    init(name: String, image: Data? = UIImage(systemName: "fork.knife")?.pngData(), ingredients: [String], instructions: [String], time: String, dietaryRestrictions: [Bool] = [false, false, false, false]) {
         self.name = name
         self.image = image
         self.ingredients = ingredients
         self.instructions = instructions
         self.time = time
+        self.dietaryRestrictions = dietaryRestrictions
+//        self.vegan = vegan
+//        self.vegetarian = vegetarian
+//        self.glutenFree = glutenFree
+//        self.nutFree = nutFree
     }
 }
 
