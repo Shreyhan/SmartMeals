@@ -178,7 +178,7 @@ struct ContentView: View {
                     context.insert(recipe)
                 }
             }
-            x
+            
             let plan = MealPlan()
             context.insert(plan)
             
