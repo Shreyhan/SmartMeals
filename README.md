@@ -23,7 +23,7 @@ SmartMeals is an iOS application designed to help users simplify weekly meal pla
 
 - **Operating System**: iOS 18 or later
 - **Development Frameworks**: SwiftUI, SwiftData
-- **Testing through XCode**: To test this app, you must have an apple developer account so you can use apple sign in.
+- **Running the app through XCode**: To run this app in an iOS simulator, you must have an apple developer account so you can use apple sign in.
 
 ### Installation
 
