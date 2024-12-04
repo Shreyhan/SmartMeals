@@ -1,7 +1,7 @@
 # SmartMeals
 
 **Version 1.0**  
-**Developers**: Shreyhan Lakhina & Shravani Suram
+**Developers**: Shreyhan Lakhina & Shravani Suram 
 **Date**: December 2024
 
 ---
