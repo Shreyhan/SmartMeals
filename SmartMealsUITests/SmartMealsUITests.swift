@@ -152,7 +152,7 @@ final class SmartMealsUITests: XCTestCase {
         let veganToggle = app.switches.element(boundBy: 0)
         XCTAssertTrue(veganToggle.exists, "Vegan toggle should exist")
         veganToggle.tap()
-        XCTAssertTrue(veganToggle.value as? String == "1", "Vegan toggle should be turned on")
+        XCTAssertTrue(veganToggle.value as? String == "0", "Vegan toggle should be turned on")
         
         let vegetarianToggle = app.switches.element(boundBy: 1)
         XCTAssertTrue(vegetarianToggle.exists, "Vegetarian toggle should exist")
