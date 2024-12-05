@@ -42,6 +42,14 @@ SmartMeals is an iOS application designed to help users simplify weekly meal pla
 4. **Grocery List**: Create a grocery list based on your meal plan by manually adding/removing items.
 5. **Budget Tracking**: Track your grocery spending and split costs among roommates via the "Budget Tracking" tab.
 
+## Testing
+Since testing this code requires a user to exist, before running any tests the code creating the user must exist in the content view
+Please add the following code under `.onAppear` in the ContentView.
+```sh
+      let user = User(firstName: "firstName", lastName: "lastName")
+      context.insert(user)
+```
+
 ## Architecture
 
 - **Client-Side Architecture**: The SmartMeals app uses a client-side architecture with an iOS-based frontend developed using SwiftUI and SwiftData for local data management.
