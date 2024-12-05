@@ -43,9 +43,9 @@ SmartMeals is an iOS application designed to help users simplify weekly meal pla
 5. **Budget Tracking**: Track your grocery spending and split costs among roommates via the "Budget Tracking" tab.
 
 ## Status of known bugs
-App crashing after adding recipe to plan - Resolved - 12/04/2024
-Recipe view not opening all the time from meal plan view - Resolved - 12/04/2024
-Currently when typing into any text field, the device lags a lot - Unresolved - 12/04/2024
+1. App crashing after adding recipe to plan - Resolved - 12/04/2024  
+2. Recipe view not opening all the time from meal plan view - Resolved - 12/04/2024  
+3. Currently when typing into any text field, the device lags a lot - Unresolved - 12/04/2024  
 
 ## Testing
 Since testing this code requires a user to exist, before running any tests the code creating the user must exist in the content view
