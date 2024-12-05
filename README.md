@@ -44,7 +44,7 @@ SmartMeals is an iOS application designed to help users simplify weekly meal pla
 
 ## Testing
 Since testing this code requires a user to exist, before running any tests the code creating the user must exist in the content view
-Please un comment the following code before running any test
+Please add the following code under `.onAppear` in the ContentView.
 ```sh
       let user = User(firstName: "firstName", lastName: "lastName")
       context.insert(user)
